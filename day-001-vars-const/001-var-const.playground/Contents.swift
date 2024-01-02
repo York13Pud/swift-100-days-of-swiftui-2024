@@ -57,3 +57,17 @@ counter -= 11
 
 
 // Decimals:
+
+// Store a decimal number:
+let decNumber = 1.0
+
+// You cannot perform arithmetic operations with a mix of ints and decimals. They all have to be the same type. For example:
+
+let a = 1
+let b = 2.0
+
+// Now, to add a and b, one will need to be converted (not changed) to the others format. For example, convert b:
+
+print(a + Int(b))
+
+// Int(b) is called typecasting.
