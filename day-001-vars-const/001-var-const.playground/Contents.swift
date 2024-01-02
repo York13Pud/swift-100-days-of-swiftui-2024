@@ -10,6 +10,7 @@ print(greeting)
 // This is a constant. Once its value has been set, it cannot be changed:
 let person = "Fred"
 
+
 // Strings:
 
 // An example of multiline strings:
@@ -35,8 +36,24 @@ print(greeting.hasPrefix("Hello"))
 // Check if a string has a particular suffix:
 print(greeting.hasSuffix(".jpg"))
 
+
 // Integers:
 
+// A simple example:
+let scoreOne = 100
+
+// Using separators for long numbers. The _ are ignored by swift:
+let scoreTwo = 100_000_000
+
+// You can use arithmetic operators as well
+let scoreThree = 10 + 2
+
+// Add to an existing var value:
+var counter = 100
+counter += 1 // This is called a compound assignment operator
+
+// You can do the same for subtraction:
+counter -= 11
 
 
 // Decimals:
