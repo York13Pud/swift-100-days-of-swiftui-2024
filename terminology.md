@@ -108,4 +108,38 @@ Using string interpolation also allows for other datatypes, such as integers to 
 
 ## Compound Assignment
 
-`+=`, `-=`, `*=`, `/=`
+Compound assignment operators allow you to perform a mathematical action to a variable and assign that variable the new value.
+
+For example, let's say you wanted to add 10 to a variable that is an existing integer. There are two ways to do it:
+
+First, add 10 to the variable and assign it to that variable name:
+
+``` swift
+var myNumber = 10
+print(myNumber) // 10
+
+myNumber = myNumber + 10
+print(myNumber) // 20
+```
+
+The cleaner method is to use compound assignment to do the same thing:
+
+``` swift
+var myNumber = 10
+print(myNumber) // 10
+
+myNumber += 10
+print(myNumber) // 20
+```
+
+With compound assignment, only the value needs to be put after the `=`.
+
+The `+=` is the compound assignment operator which will add to the existing value of `myNumber`.
+
+You can use:
+
+- `+=` to add
+- `-=` to subtract
+- `*=` to multiply and
+- `/=` to divide by
+
