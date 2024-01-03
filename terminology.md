@@ -143,3 +143,7 @@ You can use:
 - `*=` to multiply and
 - `/=` to divide by
 
+### Type Safety
+
+Type safety is hard coded into Swift to ensure that a variable cannot be changed from one data type to another. For example, if a variable is initialised as an integer and you want to store a string in that variable, swift will not permit it.
+
