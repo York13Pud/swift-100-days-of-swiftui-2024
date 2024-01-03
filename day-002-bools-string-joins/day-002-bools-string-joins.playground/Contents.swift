@@ -22,3 +22,16 @@ gameOver.toggle()
 print(gameOver) // true
 
 print(1 == 2)
+
+// Joining strings:
+
+// Using +
+let first = "Hello,"
+let second = "world"
+
+let greeting = first + " " + second + "!"
+print(greeting)
+
+// Ideally, don't use + as it is slow. Instead use string interpolation (\(name_of_var_or_const)). Works similar to Python fstrings:
+print("\(first) \(second)!")
+print(first + " " + second + "!")
