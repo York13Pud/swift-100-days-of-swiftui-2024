@@ -71,3 +71,41 @@ print(a + Int(b))
 ```
 
 Note: The value stored in b is not changed. It is only converted for that one operation. Its value is still `2.0`.
+
+### Operator Overloading
+
+Operator overloading basically means using an operator, such as `+` to be used for more than one thing.
+
+Typically, `+` would be used to add numbers together but it can also be used to join strings together, along with other possibilities.
+
+``` swift
+// Perform a simple maths operation:
+print(1 + 2) // prints 3
+
+// Perform a string join:
+let first = "Hello, "
+let second = "world"
+
+print(first + second + "!")
+```
+
+### String Interpolation
+
+String interpolation is used as a better way to join strings together. Using the `+` method while doable, it can be slow as it needs to add each string to each other in sequence.
+
+``` swift
+let first = "Hello,"
+let second = "world"
+
+// Using the + method:
+print(first + " " + second + "!")
+
+// Using string interpolation:
+print("\(first) \(second)!")
+```
+
+Using string interpolation also allows for other datatypes, such as integers to be used in the string without converting them to a string first. Using the `+` method would require that the integer first be converted to a string using typecasting.
+
+## Compound Assignment
+
+`+=`, `-=`, `*=`, `/=`
