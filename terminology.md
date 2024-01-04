@@ -147,3 +147,22 @@ You can use:
 
 Type safety is hard coded into Swift to ensure that a variable cannot be changed from one data type to another. For example, if a variable is initialised as an integer and you want to store a string in that variable, swift will not permit it.
 
+### Type Inference
+
+Type Inference is the process where Swift determines the datatype for a variable or a constant, based on what is assigned to it.
+
+For example, the below would assign the constant a string datatype because the assigned data is a string:
+
+``` swift
+let stringExample = "Hello"
+```
+
+### Type Annotations
+
+Type annotations allow you to specify the datatype for a variable or a constant.
+
+For example, the below would assign the constant a double datatype because you have defined the constant to be a double, rather than what the data is, which is an integer:
+
+``` swift
+let doubleExample: Double = 1
+```
