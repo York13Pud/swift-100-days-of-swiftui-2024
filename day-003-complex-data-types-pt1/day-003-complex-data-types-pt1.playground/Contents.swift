@@ -1,5 +1,7 @@
 import Cocoa
 
+// Arrays:
+
 // Create an array of strings:
 var names = ["Bob", "Fred", "Frank"]
 
@@ -47,3 +49,28 @@ print(scores)
 // Another way to write out an empty array in a more shorthanded way:
 var albums = [String]()
 
+// Dictionaries:
+
+// Create a simple dictionary:
+let employee2 = [
+    "name": "Taylor Swift",
+    "job": "Singer",
+    "location": "Nashville"
+]
+
+// Read each key in the dict.
+// default (required) will show unknown if the key is not found:
+print(employee2["name", default: "Unknown"])
+print(employee2["job", default: "Unknown"])
+print(employee2["location", default: "Unknown"])
+
+// Create an empty dict and then add values to it:
+var archEnemies = [String: String]()
+archEnemies["Batman"] = "The Joker"
+archEnemies["Superman"] = "Lex Luthor"
+
+// Update the entry for Batman:
+archEnemies["Batman"] = "Penguin"
+
+// Count the number of items in a dict:
+print(archEnemies.count)
