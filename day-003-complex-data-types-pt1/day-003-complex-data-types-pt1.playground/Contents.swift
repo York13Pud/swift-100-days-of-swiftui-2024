@@ -74,3 +74,53 @@ archEnemies["Batman"] = "Penguin"
 
 // Count the number of items in a dict:
 print(archEnemies.count)
+
+// Sets:
+
+// Create a simple set:
+let people1 = Set([
+    "Denzel Washington",
+    "Tom Cruise",
+    "Nicolas Cage",
+    "Samuel L Jackson"
+])
+
+// Print the contents of the set. The order will likey be different:
+print(people1)
+
+// Search for an entry:
+print(people1.contains("Tom Cruise"))
+
+// Show how many entries there are:
+print(people1.count)
+
+// Create and empty set:
+var people2 = Set<String>()
+
+// Add entries to the set:
+people2.insert("Denzel Washington")
+people2.insert("Tom Cruise")
+people2.insert("Nicolas Cage")
+people2.insert("Samuel L Jackson")
+
+// Add an existing value. The response will be inserted: false:
+people2.insert("Samuel L Jackson") // Won't work as value already exists.
+
+// Enums:
+
+// An example of an enum that contains all of the working weekdays:
+enum weekdayLong {
+    case Monday
+    case Tuesday
+    case Wednesday
+    case Thursday
+    case Friday
+}
+
+// Using the same example above but do it in a shorter way:
+enum weekdayShort {
+    case Monday, Tuesday, Wednesday, Thursday, Friday
+}
+
+// Print an example of one of the enum values:
+print(weekdayLong.Monday)
