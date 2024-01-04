@@ -124,3 +124,25 @@ enum weekdayShort {
 
 // Print an example of one of the enum values:
 print(weekdayLong.Monday)
+
+// Type Annotations:
+
+// Examples:
+let playerName: String = "Roy"
+var luckyNumber: Int = 13
+let pi: Double = 3.141
+var isAuthenticated: Bool = true
+
+// Array:
+var cds: [String] = ["Red", "Fearless"]
+var teams: [String] = [String]() // Empty array
+
+// Dict:
+var user: [String: String] = ["id": "@twostraws"]
+
+// Set:
+var bookShelf: Set<String> = Set(["The Bluest Eye", "Foundation", "Girl, Woman, Other"])
+
+// A simple example to set a constant to enforce a datatype of double:
+let doubleExample: Double = 5
+print(doubleExample)
