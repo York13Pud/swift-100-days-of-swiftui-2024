@@ -1,4 +1,4 @@
-# Day 1 Notes
+# Simple Datatype Notes
 
 ## Variables And Constants
 
@@ -42,3 +42,7 @@ This is an
 example of a multi-line string
 """
 ```
+
+### Booleans
+
+Booleans are represented in all lowercase letters (true / false).
