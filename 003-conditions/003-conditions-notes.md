@@ -45,3 +45,26 @@ There are three reasons why you might want to consider using switch rather than 
 1. Swift requires that its switch statements are exhaustive, which means you must either have a case block for every possible value to check (e.g. all cases of an enum) or you must have a default case. This isn’t true for if and else if, so you might accidentally miss a case.
 2. When you use switch to check a value for multiple possible results, that value will only be read once, whereas if you use if it will be read multiple times. This becomes more important when you start using function calls, because some of these can be slow.
 3. Swift’s switch cases allow for advanced pattern matching that is unwieldy with if.
+
+## Ternary Operator
+
+A ternary operator will run with three pieces of data, rather than two. For example:
+
+``` swift
+let ageTern = 18
+let canVoteTern = ageTern >= 18 ? "Yes" : "No"
+```
+
+In the above example, the three pieces of data are:
+
+- ageTern
+- The comparison to check for
+- ? "Yes" : "No" which returns Yes if the condition is matched or No if not.
+
+Think WTF:
+
+- W = What to check
+- T = What to do if true
+- F = What to do if false
+
+It is a simple alternative to an if - else statement.
