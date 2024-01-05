@@ -17,3 +17,4 @@ if myString.isEmpty { // isEmpty is a boolean so no need to compare it with == t
 && = And
 || = Or
 
+## Switch Statements
