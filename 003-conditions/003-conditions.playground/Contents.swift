@@ -68,8 +68,28 @@ case 3:
     print("3 French hens")
     fallthrough
 case 2:
-    print("2 turtle doves")
+    print("2 turtle doves and")
     fallthrough
 default:
     print("A partridge in a pear tree")
 }
+
+// Ternary Operator:
+
+// A simple example:
+let ageTern = 18
+let canVoteTern = ageTern >= 18 ? "Yes" : "No"
+
+// Another example:
+enum Theme {
+    case light, dark
+}
+
+let theme = Theme.dark
+
+let background = theme == .dark ? "black" : "white"
+print(background)
+
+// One last example:
+let hour = 23
+print(hour < 12 ? "It's before noon" : "It's after noon")
