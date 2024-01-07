@@ -68,3 +68,5 @@ Think WTF:
 - F = What to do if false
 
 It is a simple alternative to an if - else statement.
+
+## Loops
