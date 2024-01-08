@@ -70,3 +70,7 @@ Think WTF:
 It is a simple alternative to an if - else statement.
 
 ## Loops
+
+Usual for and while loops.
+
+Ranges in Swift are written as `1...100`, rather than `range(1, 101)` in Python. Note that 1...100 doesn't stop running when it hits 100 like Python does. It will include it.
