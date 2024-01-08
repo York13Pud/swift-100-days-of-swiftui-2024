@@ -74,3 +74,7 @@ It is a simple alternative to an if - else statement.
 Usual for and while loops.
 
 Ranges in Swift are written as `1...100`, rather than `range(1, 101)` in Python. Note that 1...100 doesn't stop running when it hits 100 like Python does. It will include it.
+
+To skip an item in a loop, use `continue`. This will skip the current item in a for loop and move onto the next item.
+
+To exit the loop early, use `break`. This will stop and exit the loop and move onto the next thing in the program.
