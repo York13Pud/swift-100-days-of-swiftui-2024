@@ -166,3 +166,30 @@ For example, the below would assign the constant a double datatype because you h
 ``` swift
 let doubleExample: Double = 1
 ```
+
+## Loops
+
+### Labeled Sttements
+
+Swift’s labeled statements allow us to name certain parts of our code, and it’s most commonly used for breaking out of nested loops. For example, break out of a nested for loop using a labeled statement to specify the loop to exit.
+
+``` swift
+let options = ["up", "down", "left", "right"]
+let secretCombination = ["up", "up", "right"]
+
+outerLoop: for option1 in options {
+    for option2 in options {
+        for option3 in options {
+            print("In loop")
+            let attempt = [option1, option2, option3]
+
+            if attempt == secretCombination {
+                print("The combination is \(attempt)!")
+                break outerLoop
+            }
+        }
+    }
+}
+```
+
+If the first loop was not labeled, the loop would have continued as on of the loops would not have broken.
