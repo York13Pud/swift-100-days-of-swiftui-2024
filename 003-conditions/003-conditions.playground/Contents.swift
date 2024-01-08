@@ -93,3 +93,44 @@ print(background)
 // One last example:
 let hour = 23
 print(hour < 12 ? "It's before noon" : "It's after noon")
+
+// for loops
+
+// Loop over an array:
+let platforms = ["iOS", "macOS", "tvOS", "watchOS"]
+
+for os in platforms {
+    print("Swift works great on \(os).")
+}
+
+// Loop over a range:
+// Including the last number in the range:
+for i in 1...12 {
+    print("5 x \(i) is \(5 * i)")
+}
+
+// Up to the last number in the range but not running against that number (the way Python handles ranges)L
+for i in 1..<5 {
+    print("Counting 1 up to 5: \(i)")
+}
+
+// Nested for loops:
+for i in 1...12 {
+    print("The \(i) times table:")
+
+    for j in 1...12 {
+        print("  \(j) x \(i) is \(j * i)")
+    }
+
+    print()
+}
+
+// Iterate over a loop with no variable defined (basically, add more to the lyric five times:
+var lyric = "more"
+
+for _ in 1...5 {
+    lyric += " more"
+}
+
+print(lyric)
+
