@@ -126,11 +126,101 @@ for i in 1...12 {
 }
 
 // Iterate over a loop with no variable defined (basically, add more to the lyric five times:
-var lyric = "more"
+var text = "more"
 
 for _ in 1...5 {
-    lyric += " more"
+    text += " more"
 }
 
-print(lyric)
+print(text)
 
+// If you just want to print the values of an array, you can do so with a range in the [] instead of using a for loop:
+print(platforms[0...])
+
+// Use an array just in the for loop:
+for number in [2, 3, 5] {
+    print("\(number) is a prime number.")
+}
+
+// While loops:
+
+// A basic while loop:
+var countdown = 10
+
+while countdown > 0 {
+    print("\(countdown)…")
+    countdown -= 1
+}
+
+print("Blast off!")
+
+// Another example using a random number:
+
+// create an integer to store our roll
+var roll = 0
+
+// carry on looping until we reach 20
+while roll != 20 {
+    // roll a new dice and print what it was
+    roll = Int.random(in: 1...20)
+    print("I rolled a \(roll)")
+}
+
+// if we're here it means the loop ended – we got a 20!
+print("Critical hit!")
+
+var speed = 50
+while speed <= 55 {
+    print("Accelerating to \(speed)")
+    speed += 1
+}
+
+// Skipping in a loop
+
+// Skip an item in a loop:
+
+let filenames = ["me.jpg", "work.txt", "sophie.jpg", "logo.psd"]
+
+for filename in filenames {
+    if filename.hasSuffix(".jpg") == false {
+        continue
+    }
+
+    print("Found picture: \(filename)")
+}
+
+// Exit out of the loop:
+
+let number1 = 4
+let number2 = 14
+var multiples = [Int]()
+
+for i in 1...100_000 {
+    if i.isMultiple(of: number1) && i.isMultiple(of: number2) {
+        multiples.append(i)
+
+        if multiples.count == 10 {
+            break
+        }
+    }
+}
+
+print(multiples)
+
+// Break out of a specific loop in a nested loop using labeled statements:
+let options = ["up", "down", "left", "right"]
+let secretCombination = ["up", "up", "right"]
+
+outerLoop: for option1 in options {
+    for option2 in options {
+        for option3 in options {
+            print("In loop")
+            let attempt = [option1, option2, option3]
+
+            if attempt == secretCombination {
+                print("The combination is \(attempt)!")
+                break outerLoop
+            }
+        }
+    }
+}
