@@ -92,3 +92,56 @@ print("Name: \(firstName) \(lastName)")
 // or the below if you just want the firstName:
 // let (firstName, _) = getUserThree()
 // print("Name: \(firstName)")
+
+// Adding default values for parameters in a function:
+
+func printTimesTables(for number: Int, end: Int = 12) {
+    for i in 1...end {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+
+printTimesTables(for: 5, end: 20)
+printTimesTables(for: 8)
+
+// Handle errors in functions:
+
+// Create an enum to offer two error strings:
+enum PasswordError: Error {
+    case short, obvious
+}
+
+// Next, create a function that tests a password string for certain criteria.
+// If a condition matches either a short or obvious password, it throws an error:
+func checkPassword(_ password: String) throws -> String {
+    if password.count < 5 {
+        throw PasswordError.short
+    }
+
+    if password == "12345" {
+        throw PasswordError.obvious
+    }
+
+    if password.count < 8 {
+        return "OK"
+    } else if password.count < 10 {
+        return "Good"
+    } else {
+        return "Excellent"
+    }
+}
+
+// Define a constant that will contain the password to check:
+let passwordString = "12345mkglkndkg.ljfbhguihtiehghsgh949u4yrie9uoigkj"
+
+// Lastly, use a do, try and catch to check the password against the function:
+do {
+    let result = try checkPassword(passwordString)
+    print("Password rating: \(result)")
+} catch PasswordError.short {
+    print("Please use a longer password.")
+} catch PasswordError.obvious {
+    print("I have the same combination on my luggage!")
+} catch {
+    print("There was an error.")
+}
