@@ -40,3 +40,52 @@ You can use another name for a parameter outside of the function to make it easi
 2. You use an `_` before the parameter name. This essentially does the same thing as the label will be the same as the parameter name. For example `func MyFunc(name: String) { }`.
 3. Use a name that is meaningful before the parameter name. For example `func MyFunc(upto count: Int) { }`.
 
+## Error Handling
+
+To produce an error, you can use the `throws` method in a functions return.
+
+You can perform error handling using the do, try and catch process.
+
+For example, let's use both a throw and do,try and catch:
+
+``` swift
+// Create an enum to offer two error strings:
+enum PasswordError: Error {
+    case short, obvious
+}
+
+// Next, create a function that tests a password string for certain criteria.
+// If a condition matches either a short or obvious password, it throws an error:
+func checkPassword(_ password: String) throws -> String {
+    if password.count < 5 {
+        throw PasswordError.short
+    }
+
+    if password == "12345" {
+        throw PasswordError.obvious
+    }
+
+    if password.count < 8 {
+        return "OK"
+    } else if password.count < 10 {
+        return "Good"
+    } else {
+        return "Excellent"
+    }
+}
+
+// Define a constant that will contain the password to check:
+let passwordString = "12345"
+
+// Lastly, use a do, try and catch to check the password against the function:
+do {
+    let result = try checkPassword(passwordString)
+    print("Password rating: \(result)")
+} catch PasswordError.short {
+    print("Please use a longer password.")
+} catch PasswordError.obvious {
+    print("I have the same combination on my luggage!")
+} catch {
+    print("There was an error.")
+}
+```
