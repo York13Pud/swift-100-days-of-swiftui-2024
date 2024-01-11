@@ -44,4 +44,54 @@ print(captainFirstTeamClosure)
 
 // Trailing closures
 
+// Using the previous example, there is a shorter way to write it using a trailing closure:
 
+let captainFirstTeamTrailingClosure = team.sorted { name1, name2 in
+    if name1 == "Suzanne" {
+        return true
+    } else if name2 == "Suzanne" {
+        return false
+    }
+
+    return name1 < name2
+}
+
+
+
+// Shorthand syntax
+
+let captainFirstTeamShorthand = team.sorted {
+    if $0 == "Suzanne" {
+        return true
+    } else if $1 == "Suzanne" {
+        return false
+    }
+
+    return $0 < $1
+}
+
+// Better example that reverse sorts the array:
+let reverseTeam = team.sorted {
+    return $0 > $1
+}
+
+// Or an even shorter way given it is one line of code:
+
+let reverseTeamShorter = team.sorted { return $0 > $1 }
+
+print(reverseTeamShorter)
+
+// Other examples using shorthand syntax:
+
+// Use filter on the team array:
+let tOnly = team.filter { $0.hasPrefix("T") }
+print(tOnly)
+
+// Use map to transform the array contents to uppercase:
+let uppercaseTeam = team.map { $0.uppercased() }
+print(uppercaseTeam)
+
+let testing = ["1", "2"]
+
+let toInteger = testing.map { Int($0)! }
+print(toInteger)
