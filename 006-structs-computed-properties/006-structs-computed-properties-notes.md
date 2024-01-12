@@ -115,7 +115,7 @@ The above example will set `vacationAllocated` to `10`. The `get` section is bas
 
 Note: Constants cannot be computed properties.
 
-## Property Change Actions
+## Property Observers
 
 Swift lets us create property observers, which are special pieces of code that run when properties change. These take two forms: a `didSet` observer to run when the property just changed, and a `willSet` observer to run before the property changed.
 
@@ -143,3 +143,26 @@ app.contacts.append("Ish S")
 ```
 
 `oldValue` and `newValue` again are special functions that are used in structs. They are pretty self explanatory.
+
+## Custom Initialisers
+
+Custom initialisers allow us to create custom properties that can be simply assigned from an argument or be computed, both when the struct is first called.
+
+There is one rule: *All the values in the struct must have a value by the end of the initialisation.*
+
+``` swift
+struct Player {
+    let name: String
+    let number: Int
+
+    init(name: String) {
+        self.name = name
+        number = Int.random(in: 1...99)
+    }
+}
+
+let player = Player(name: "Megan R")
+print("\(player.name) is number \(player.number)")
+```
+
+In the above example, number does not need `self.` as it is not being passed a value when the struct is built. `name` on the other hand does require it because it is being passed a value.
