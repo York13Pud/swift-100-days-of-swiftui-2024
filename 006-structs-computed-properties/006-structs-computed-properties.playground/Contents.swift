@@ -89,7 +89,7 @@ archerThree.vacationRemaining = 5
 print(archerThree.vacationRemaining)
 print(archerThree.vacationAllocated)
 
-// Property Change Actions
+// Property Observers
 
 struct App {
     var contacts = [String]() {
@@ -109,3 +109,18 @@ var app = App()
 app.contacts.append("Adrian E")
 app.contacts.append("Allen W")
 app.contacts.append("Ish S")
+
+// Custom Initialisers
+
+struct Player {
+    let name: String
+    let number: Int
+
+    init(name: String) {
+        self.name = name
+        number = Int.random(in: 1...99)
+    }
+}
+
+let player = Player(name: "Megan R")
+print("\(player.name) is number \(player.number)")
