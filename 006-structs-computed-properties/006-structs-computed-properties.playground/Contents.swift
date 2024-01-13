@@ -124,3 +124,38 @@ struct Player {
 
 let player = Player(name: "Megan R")
 print("\(player.name) is number \(player.number)")
+
+// Access Control
+
+// An example to limit the changes to a property to two methods within the struct:
+struct BankAccount {
+    private(set) var funds = 100
+
+    mutating func deposit(amount: Int) {
+        funds += amount
+    }
+
+    mutating func withdraw(amount: Int) -> Bool {
+        if funds >= amount {
+            funds -= amount
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
+var account = BankAccount()
+account.deposit(amount: 100)
+// account.funds -= 1000 // This will throw an error as you cannot modify a private var outside of the struct
+print(account.funds) // As funds is marked as private(set), funds can be read from outside the struct
+
+// Static Properties and Methods
+
+struct AppData {
+    static let version = "1.3 beta 2"
+    static let saveFilename = "settings.json"
+    static let homeURL = "https://www.hackingwithswift.com"
+}
+
+print(AppData.version)
