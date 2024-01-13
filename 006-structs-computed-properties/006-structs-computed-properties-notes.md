@@ -166,3 +166,6 @@ print("\(player.name) is number \(player.number)")
 ```
 
 In the above example, number does not need `self.` as it is not being passed a value when the struct is built. `name` on the other hand does require it because it is being passed a value.
+
+## Access Control
+
