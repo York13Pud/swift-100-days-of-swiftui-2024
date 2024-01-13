@@ -169,3 +169,71 @@ In the above example, number does not need `self.` as it is not being passed a v
 
 ## Access Control
 
+Access controls allow you to limit access to properties or methods within an struct. There are four options available:
+
+- Use `public` for "let anyone, anywhere use this". This is the default.
+- Use `private` for "don’t let anything outside the struct use this".
+- Use `fileprivate` for "don't let anything outside the current file use this".
+- Use `private(set)` for "allow read-only access outside the struct and modify only from within the struct" The only exception to this is when you are initialising, you can write (`set`) but no changes externally can be directly done.
+
+For example:
+
+``` swift
+struct BankAccount {
+    var funds = 0
+
+    mutating func deposit(amount: Int) {
+        funds += amount
+    }
+
+    mutating func withdraw(amount: Int) -> Bool {
+        if funds >= amount {
+            funds -= amount
+            return true
+        } else {
+            return false
+        }
+    }
+}
+```
+
+The issue with the above is that the `funds` property is public, which allows for it to be changed without using either the `deposit` or `withdraw` methods. To get around this, the `funds` property should be marked with `private` or `private(set)`. For example:
+
+``` swift
+struct BankAccount {
+    private(set) var funds = 0
+
+    mutating func deposit(amount: Int) {
+        funds += amount
+    }
+
+    mutating func withdraw(amount: Int) -> Bool {
+        if funds >= amount {
+            funds -= amount
+            return true
+        } else {
+            return false
+        }
+    }
+}
+```
+
+## Static Properties and Methods
+
+Static properties and methods are used to stick data to a struct so that it can be accessed either when it is initialised by a call, or by accessing the property or method in the struct directly. For example:
+
+``` swift
+struct AppData {
+    static let version = "1.3 beta 2"
+    static let saveFilename = "settings.json"
+    static let homeURL = "https://www.hackingwithswift.com"
+}
+
+AppData.version
+```
+
+A good use case for this is sample data or when you have a list of variable or constants that need to be shared throughout the app.
+
+Note: You can mix static and non-static properties and methods in a struct but static cannot access non-static. However though, non-static can read static.
+
+Lastly, static methods do not need to be marked as mutating when they change a property.
