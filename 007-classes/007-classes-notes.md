@@ -199,3 +199,8 @@ print("Array is clear!")
 ```
 
 ## Working With Variables Inside Classes
+
+In short, if you create an object from a class as a constant and it has variable properties inside that object, you can change them. The name of the object cannot change if it's a constant and neither can a constant property of the object.
+
+Also, methods don't need to be marked as `mutating` inside a class.
+
