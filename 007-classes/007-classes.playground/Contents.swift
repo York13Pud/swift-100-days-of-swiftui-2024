@@ -129,5 +129,3 @@ for i in 1...3 {
 print("Loop is finished!")
 users.removeAll() // As each item in the array is removed, the deinit runs.
 print("Array is clear!")
-
-// Working With Variables Inside Classes
