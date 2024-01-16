@@ -44,3 +44,5 @@ protocol Vehicle {
 ```
 
 Lastly, you can specify multiple protocols for something to conform to by separating them with a `,`.
+
+## Opaque Return Types
