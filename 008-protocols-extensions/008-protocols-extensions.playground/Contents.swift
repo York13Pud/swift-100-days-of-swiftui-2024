@@ -44,3 +44,27 @@ let bike = Bicycle()
 commute(distance: 50, using: bike)
 
 // Opaque Return Types
+
+func getRandomNumber() -> some Equatable {
+    Int.random(in: 1...3)
+}
+
+func getRandomBool() -> some Equatable {
+    Bool.random()
+}
+
+print(getRandomNumber() == getRandomNumber())
+
+// Protocol Extensions
+extension Collection { // Array conforms to the Collection protocol so this will cascade down to Array
+    var isNotEmpty: Bool {
+        isEmpty == false
+    }
+}
+
+let guests = ["Mario", "Luigi", "Peach"]
+
+if guests.isNotEmpty {
+    print("Guest count: \(guests.count)")
+}
+	
