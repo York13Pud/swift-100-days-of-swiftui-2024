@@ -29,15 +29,18 @@ In the above example, the `Vehicle` protocol defines two methods. Each method ca
 
 In the `Car` struct, it conforms to the `Vehicle` protocol and as such has both methods defined within it. The struct has an additional method called `openSunroof` which is not part of the `Vehicle` protocol. This is okay as you can add beyond the protocol but whatever the protocol defines, you must have it present.
 
-Within a protocol, you can also add methods. When you do so, you also must specify if they are read-only (`get`) or writable (`set`). They also cannot have any default values assigned to them. 
+Within a protocol, you can also add methods. When you do so, you also must specify if they are read-only (`get`) or writable (`set`). They also cannot have any default values assigned to them and must have a type annotation assigned.
 
 For example:
 
 ``` swift
 protocol Vehicle {
     var name: String { get }
-    var currentPassengers: Int { get set }
+    var currentPassengers: Int { get set } // read and write
+
     func estimateTime(for distance: Int) -> Int
     func travel(distance: Int)
 }
 ```
+
+Lastly, you can specify multiple protocols for something to conform to by separating them with a `,`.
