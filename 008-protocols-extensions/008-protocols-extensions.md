@@ -46,3 +46,39 @@ protocol Vehicle {
 Lastly, you can specify multiple protocols for something to conform to by separating them with a `,`.
 
 ## Opaque Return Types
+
+1. Opaque return types allow a function to return a sub-type of the declared type, so `func random_number() -> some Equitable` can be read and interpret as it returns *some* kind of Equitable.
+2. Allowing to return a sub-type of generic type, might support program reasoning when the characteristics of the generic type is sufficient, while Swift compiler can take care the nuance of the sub-type in compilation checking.
+
+The best example of an opaque return type would be the SwiftUI `View` protocol. When using this for the preview in Xcode, it has `some View` in there which will allow any elements that conform to the `View` protocol, such as a navbar at the bottom to be returned. The below code is common in iOS Xcode projects when you first create one:
+
+``` swift
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+```
+
+## Protocol Extensions
+
+Protocol extensions allow you to add additional functionality to an existing protocol. For example, let's add an `isNotEmpty` extension to the `Array` protocol:
+
+``` swift
+extension Array {
+    var isNotEmpty: Bool {
+        isEmpty == false
+    }
+}
+
+let guests = ["Mario", "Luigi", "Peach"]
+
+if guests.isNotEmpty {
+    print("Guest count: \(guests.count)")
+}
+```
+
+In the above example, the `isNotEmpty` method is defined in the extension and can be used on any array in the application it is part of. If you wanted it to apply to other data structures, such as dictionaries and sets, you have two options:
+
+1. Create the same extension for the data structure. Or
+2. Given that the `Array` protocol is a member of the `Collection` protocol, along with dictionaries and sets, you can create the extension on `Collection` and it will apply to anything that conforms to that protocol.
