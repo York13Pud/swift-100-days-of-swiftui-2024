@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  project-001-wesplit
 //
-//  Created by Neil Allwood on 21/01/2024.
+//  Created: 21/01/2024.
 //
 
 import SwiftUI
