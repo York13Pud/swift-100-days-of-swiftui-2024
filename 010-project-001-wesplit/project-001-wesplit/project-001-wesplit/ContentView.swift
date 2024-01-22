@@ -8,22 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tapCount = 0 // @state is a property wrapper to allow for the value to change. Make it private so that it is only used in this struct (Apple recommendation).
+    
     var body: some View {
-        Form {
-            Text("Hello World")
-            Text("Hello World")
-            Text("Hello World")
-            Text("Hello World")
+        NavigationStack {
+            Form {
+                Section {
+                    Text("Hello World")
+                }
+                
+                Section {
+                    Text("Hello World")
+                    Text("Hello World")
+                    Text("Hello World")
+                }
+                
+                Button("Tap Count \(tapCount)") {
+                    tapCount += 1
+                }
+            }
+            .navigationTitle("SwiftUI")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.red)
-//            Text("Hello, world!")
-//                .font(.largeTitle)
-//        }
-//        .padding()
     }
 }
 
