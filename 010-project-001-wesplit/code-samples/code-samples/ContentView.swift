@@ -67,3 +67,4 @@ struct ContentView: View {
 #Preview { // This is a macro
     ContentView()
 }
+
