@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var numberOfPeople: Int = 2
     @State private var tipPercentage: Int = 10
     
+    @FocusState private var amountIsFocused: Bool
+    
     let tipPercentages = [10, 15, 20, 25, 0]
     
     var totalPerPerson: Double {
@@ -45,6 +47,7 @@ struct ContentView: View {
                                       format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                             )
                             .keyboardType(.decimalPad) // Sets the keyboard type to a number pad on appear
+                            .focused($amountIsFocused)
                             
                             Picker("Number Of People", selection: $numberOfPeople) {
                                 ForEach(2..<100, id: \.self) {
@@ -69,16 +72,25 @@ struct ContentView: View {
                             )
                         }
                     }
-                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarTitleDisplayMode(.automatic)
+                    .navigationTitle("WeSplit")
                     .toolbar {
-                        ToolbarItem(placement: .principal) {
-                            VStack {
-                                Text("WeSplit")
-                                    .font(.title)
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .foregroundStyle(Color.white)
-                            }
+                        // Add button to hide the keyboard. Shows up in the top right.
+                        if amountIsFocused {
+                            Button("Done") {
+                                amountIsFocused = false
+                            }.foregroundColor(.white)
                         }
+                        
+//                        ToolbarItem(placement: .principal) {
+//                            VStack {
+//                                Text("WeSplit")
+//                                    .font(.title)
+//                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+//                                    .foregroundStyle(Color.white)
+//                            }
+//                        }
+
                     }
                 }
             }
