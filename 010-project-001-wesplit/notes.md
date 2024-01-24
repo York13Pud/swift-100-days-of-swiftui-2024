@@ -108,8 +108,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Form {
-                    TextField("Enter your name", text: $name)
-                    Text("Your name is \(name)")
+                TextField("Enter your name", text: $name)
+                Text("Your name is \(name)")
             }
         }
         .padding()
