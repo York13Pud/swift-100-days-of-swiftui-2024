@@ -1,19 +1,19 @@
-//
-//  ContentView.swift
-//  code-samples
-//
-//  Created by Neil Allwood on 26/01/2024.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        VStack(spacing: 20){
+            Text("This is a")
+            Text("VStack")
+        }
+        .padding()
+
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            
+            HStack {
+                Text("This is a")
+                Text("HStack inside a VStack")
+            }
         }
         .padding()
     }
