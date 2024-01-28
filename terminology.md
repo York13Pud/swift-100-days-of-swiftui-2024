@@ -169,7 +169,7 @@ let doubleExample: Double = 1
 
 ## Loops
 
-### Labeled Sttements
+### Labeled Statements
 
 Swift’s labeled statements allow us to name certain parts of our code, and it’s most commonly used for breaking out of nested loops. For example, break out of a nested for loop using a labeled statement to specify the loop to exit.
 
