@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            
+            // Set background colour:
             Color.gray
             
             VStack(spacing: 30) {
@@ -34,7 +34,8 @@ struct ContentView: View {
                     }
                 }
             }
-        } .ignoresSafeArea()
+        } 
+        .ignoresSafeArea()
     }
 }
 
