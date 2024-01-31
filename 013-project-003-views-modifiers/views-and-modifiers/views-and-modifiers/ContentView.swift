@@ -21,6 +21,28 @@ struct CapsuleText: View {
     }
 }
 
+// Custom modifier example:
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .padding()
+            .background(.purple)
+            .clipShape(.rect(cornerRadius: 10))
+    }
+}
+// Create an extension to the "View" protocol to create a custom modifier from "Title":
+extension View {
+    func titleStyle() -> some View {
+        modifier(Title())
+    }
+}
+
+// Tip: Often folks wonder when it’s better to add a custom view modifier versus
+// just adding a new method to View, and really it comes down to one main reason:
+// custom view modifiers can have their own stored properties, whereas extensions to View cannot.
+
 
 struct ContentView: View {
     @State private var useRedText = false
@@ -80,6 +102,10 @@ struct ContentView: View {
         // View composition example:
         CapsuleText(text: "Hello")
         CapsuleText(text: "World!")
+        
+        // Custom modifier example:
+        Text("Custom")
+            .titleStyle()
     }
 }
 
