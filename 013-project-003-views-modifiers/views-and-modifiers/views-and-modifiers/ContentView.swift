@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+// View composition example (Basically, create a pre-formatted text box that can be reused):
+struct CapsuleText: View {
+    let text: String
+
+    var body: some View {
+        Text(text)
+            .font(.largeTitle)
+            .padding()
+            .foregroundStyle(.white)
+            .background(.blue)
+            .clipShape(.capsule)
+    }
+}
+
+
 struct ContentView: View {
     @State private var useRedText = false
     
@@ -61,6 +76,10 @@ struct ContentView: View {
         calcText
         calculation
         calculationStack
+        
+        // View composition example:
+        CapsuleText(text: "Hello")
+        CapsuleText(text: "World!")
     }
 }
 
