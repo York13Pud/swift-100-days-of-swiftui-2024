@@ -12,12 +12,24 @@ struct ContentView: View {
     
     var body: some View {
         // Conditional modifier example:
-        Button("Hello World! \(String(useRedText))") {
-            useRedText.toggle()
+        VStack {
+            Button("Hello World! \(String(useRedText))") {
+                useRedText.toggle()
+            }
+            // Use a ternary operator to check if true or false and set the font colour as such:
+            .foregroundColor(useRedText == true ? .red : .green)
         }
-        // Use a ternary operator to check if true or false and set the font colour as such:
-        .foregroundColor(useRedText == true ? .red : .green)
         
+        // Environment modifier example:
+        VStack {
+            Text("Goodbye")
+                .font(.largeTitle) // This will override the environment modifier. Not all
+                                   // modifiers can override the environment modifier.
+            Text("Goodbye")
+            Text("Goodbye")
+        }
+        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/) // This is an environment modifier. A better way to think
+                      // of it is as a container modifier.
     }
 }
 
