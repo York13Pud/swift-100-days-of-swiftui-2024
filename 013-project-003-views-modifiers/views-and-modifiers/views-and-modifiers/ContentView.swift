@@ -10,6 +10,32 @@ import SwiftUI
 struct ContentView: View {
     @State private var useRedText = false
     
+    // A simple view property example:
+    let calcText: Text = Text("1 + 2 is:")
+                             .foregroundStyle(.orange)
+    
+    // Computed View property example:
+    var calculation: some View {
+        let add: Int = 1 + 2
+        
+        return Text("\(add)")
+                   .foregroundStyle(.red)
+    }
+    
+    // Or you could combine both into a stack or group:
+    var calculationStack: some View {
+        VStack {
+            Text("1 + 2 is:")
+                .foregroundStyle(.blue)
+
+            let add: Int = 1 + 2
+            
+            Text("\(add)")
+                .foregroundStyle(.purple)
+        }
+    }
+    
+    
     var body: some View {
         // Conditional modifier example:
         VStack {
@@ -30,6 +56,11 @@ struct ContentView: View {
         }
         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/) // This is an environment modifier. A better way to think
                       // of it is as a container modifier.
+        
+        // View property example:
+        calcText
+        calculation
+        calculationStack
     }
 }
 
