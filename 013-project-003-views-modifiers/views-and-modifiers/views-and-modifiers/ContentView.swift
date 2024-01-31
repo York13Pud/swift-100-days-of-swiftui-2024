@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var useRedText = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        // Conditional modifier example:
+        Button("Hello World! \(String(useRedText))") {
+            useRedText.toggle()
         }
-        .padding()
+        // Use a ternary operator to check if true or false and set the font colour as such:
+        .foregroundColor(useRedText == true ? .red : .green)
+        
     }
 }
 
