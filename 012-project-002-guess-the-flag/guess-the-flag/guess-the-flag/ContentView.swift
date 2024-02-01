@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var correctAnswer: Int = Int.random(in: 0...2)
     
     @State private var playerScore: Int = 0
-    @State private var roundsPlayed: Int = 0
+    @State private var roundsPlayed: Int = 1
     let roundsToPlay = 8
     
     // Vars for the score alert:
@@ -136,7 +136,7 @@ struct ContentView: View {
     func resetGame() {
         // Reset vars to defaults:
         playerScore = 0
-        roundsPlayed = 0
+        roundsPlayed = 1
         showingScore = false
         gameOver = false
         scoreTitle = ""
