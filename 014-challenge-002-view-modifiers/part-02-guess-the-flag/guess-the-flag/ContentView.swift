@@ -7,13 +7,23 @@
 
 import SwiftUI
 
+struct FlagImage: View {
+    let imageName: String
+    
+    var body: some View {
+        Image(imageName)
+            .clipShape(.capsule)
+            .shadow(radius: 12)
+    }
+}
+
 struct ContentView: View {
     @State private var countries: Array<String> = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     
     @State private var correctAnswer: Int = Int.random(in: 0...2)
     
     @State private var playerScore: Int = 0
-    @State private var roundsPlayed: Int = 0
+    @State private var roundsPlayed: Int = 1
     let roundsToPlay = 8
     
     // Vars for the score alert:
@@ -26,12 +36,13 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             // Set background colour:
-            // LinearGradient(colors: [.purple, .mint], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [.green, .pink], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
             
-            RadialGradient(stops: [.init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
-                                   .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3)],
-                           center: .top, startRadius: 200, endRadius: 700)
-                           .ignoresSafeArea()
+//            RadialGradient(stops: [.init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
+//                                   .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3)],
+//                           center: .top, startRadius: 200, endRadius: 700)
+//                           .ignoresSafeArea()
 
             VStack {
                 Spacer()
@@ -60,9 +71,8 @@ struct ContentView: View {
                             flagTapped(number)
                         } label: {
                             // Image will get the image from the asset library that matches the name provided below:
-                            Image(countries[number])
-                                .clipShape(.capsule)
-                                .shadow(radius: 12)
+                            // Updated for Challenge 2.
+                            FlagImage(imageName: countries[number])
                         }
                     }
                 }
@@ -78,6 +88,7 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/.weight(.bold))
                 
+                // Fixed issue that would show round 9 of 8 instead of 8
                 Text("Round: \(roundsPlayed) of \(roundsToPlay)")
                     .foregroundStyle(.white)
                     .font(.headline.weight(.bold))
@@ -118,7 +129,7 @@ struct ContentView: View {
             scoreMessage = "That is the flag of \(countries[number])"
         }
         
-        roundsPlayed += 1
+        
         showingScore = true
     }
     
@@ -128,6 +139,7 @@ struct ContentView: View {
             scoreMessage = "After \(roundsToPlay) rounds, your final score is \(playerScore)"
             gameOver = true
         } else {
+            roundsPlayed += 1
             countries.shuffle()
             correctAnswer = Int.random(in: 0...2)
         }
@@ -136,7 +148,7 @@ struct ContentView: View {
     func resetGame() {
         // Reset vars to defaults:
         playerScore = 0
-        roundsPlayed = 0
+        roundsPlayed = 1
         showingScore = false
         gameOver = false
         scoreTitle = ""
