@@ -103,7 +103,9 @@ struct ContentView: View {
                              format: .currency(code: Locale.current.currency?.identifier ?? "USD")
                         )
                         .frame(maxWidth: .infinity, alignment: .trailing)
-                    }.foregroundColor(.accentColor)
+                    }
+                    // This is the only change. Adds conditional formatting
+                    .foregroundColor(tipPercentage == 0 ? .red : .blue)
     
                 }
             }
