@@ -10,7 +10,7 @@ struct ButtonStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(width: 110, height: 130)
-            .foregroundStyle(.gray)
+            .foregroundStyle(.secondary)
             .background(.thinMaterial)
             .clipShape(.rect(cornerRadius: 10))
             .shadow(radius: 12)
@@ -41,19 +41,32 @@ struct ContentView: View {
     
     @State private var roundsPlayed: Int = 1
     
+    @State private var showAlert: Bool = false
+    
     var body: some View {
-
+        
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.purple, .cyan]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             VStack {
+                Text("Rock - Paper - Scissors")
+                    .font(.largeTitle)
+                    .foregroundStyle(.primary)
+                
+                Spacer()
+                
+                Text("Press A Button To Play")
+                    .font(.title2)
+                    .foregroundStyle(.primary)
                 
                 HStack {
                     
                     Spacer()
+                    
                     ForEach(moves, id: \.key) { key, value in
                         Button {
+                            playerChoice = key
                             buttonPressed()
                         } label: {
                             VStack {
@@ -68,6 +81,39 @@ struct ContentView: View {
                         Spacer()
                     }
                 }
+                
+                Text("Round \(roundsPlayed) of 8")
+                    .font(.title2)
+                    .padding()
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                        VStack {
+                            Text("Player")
+                            Text("\(playerScore)")
+                        }
+                    
+                    Spacer()
+                    
+                        VStack {
+                            Text("Scores")
+                            Text(" ")
+                        }
+                    
+                    Spacer()
+                    
+                        VStack {
+                            Text("Phone")
+                            Text("\(appScore)")
+                        }
+                    
+                    Spacer()
+                }
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .foregroundStyle(.primary)
+                
             }
         }
     }
@@ -75,15 +121,54 @@ struct ContentView: View {
     // Program logic goes here:
     func buttonPressed() {
         appChoice = moves[Int.random(in: 0...2)].key
+        
+        if appChoice == "rock" && playerChoice == "paper" {
+            playerScore += 1
+        } else if appChoice == "rock" && playerChoice == "scissors" {
+            appScore += 1
+        } else if appChoice == "paper" && playerChoice == "scissors" {
+            playerScore += 1
+        } else if appChoice == "paper" && playerChoice == "rock" {
+            appScore += 1
+        } else if appChoice == "scissors" && playerChoice == "rock" {
+            playerScore += 1
+        } else if appChoice == "scissors" && playerChoice == "paper" {
+            appScore += 1
+        } else if playerChoice == "rock" && appChoice == "paper" {
+            appScore += 1
+        } else if playerChoice == "rock" && appChoice == "scissors" {
+            playerScore += 1
+        } else if playerChoice == "paper" && appChoice == "scissors" {
+            appScore += 1
+        } else if playerChoice == "paper" && appChoice == "rock" {
+            playerScore += 1
+        } else if playerChoice == "scissors" && appChoice == "rock" {
+            appScore += 1
+        } else if playerChoice == "scissors" && appChoice == "paper" {
+            playerScore += 1
+        } else {
+            print("Draw")
+        }
+        
+        // Check if last round has been played:
+        if roundsPlayed != 8 {
+            roundsPlayed += 1
+        } else {
+            print("Game Over")
+        }
 
     }
     
-    func nextRoundOrGameOver() {
-        
-    }
-    
     func restartGame() {
+        appScore = 0
+        playerScore = 0
         
+        appChoice = ""
+        playerChoice = ""
+        
+        roundsPlayed = 1
+        
+        showAlert = false
     }
     
 }
