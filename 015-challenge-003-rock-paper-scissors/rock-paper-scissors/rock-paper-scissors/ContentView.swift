@@ -41,7 +41,8 @@ struct ContentView: View {
     
     @State private var roundsPlayed: Int = 1
     
-    @State private var showAlert: Bool = false
+    @State private var gameOver: Bool = false
+    @State private var gameOverMessage: String = ""
     
     var body: some View {
         
@@ -115,6 +116,12 @@ struct ContentView: View {
                 .foregroundStyle(.primary)
                 
             }
+            .alert("Game Over", isPresented: $gameOver) {
+                Button("New Game", action: restartGame)
+            } message: {
+                Text(gameOverMessage)
+                    .foregroundStyle(.white)
+            }
         }
     }
     
@@ -147,14 +154,21 @@ struct ContentView: View {
         } else if playerChoice == "scissors" && appChoice == "paper" {
             playerScore += 1
         } else {
-            print("Draw")
+            
         }
         
         // Check if last round has been played:
         if roundsPlayed != 8 {
             roundsPlayed += 1
         } else {
-            print("Game Over")
+            if playerScore > appScore {
+                gameOverMessage = "Congratulations! You Won!"
+            } else if appScore > playerScore {
+                gameOverMessage = "Unlucky! The phone won!"
+            } else {
+                gameOverMessage = "Close! This match is a draw!"
+            }
+            gameOver = true
         }
 
     }
@@ -168,7 +182,8 @@ struct ContentView: View {
         
         roundsPlayed = 1
         
-        showAlert = false
+        gameOverMessage = ""
+        gameOver = false
     }
     
 }
