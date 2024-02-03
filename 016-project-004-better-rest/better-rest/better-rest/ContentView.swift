@@ -1,7 +1,4 @@
 //
-//  ContentView.swift
-//  code-examples
-//
 
 import SwiftUI
 
