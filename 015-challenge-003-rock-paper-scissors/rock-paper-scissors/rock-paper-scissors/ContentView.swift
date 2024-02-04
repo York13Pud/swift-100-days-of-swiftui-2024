@@ -28,9 +28,9 @@ import SwiftUI
 struct ContentView: View {
     
     var moves = [
-        "rock": "✊",
-        "paper": "✋",
-        "scissors": "✌️"
+        "rock": "✊", // 0 - Add in v2
+        "paper": "✋", // 1 - Add in v2
+        "scissors": "✌️" // 2 - Add in v2
     ].sorted(by: {$0.value < $1.value}) // Converted to an array of tuples and maintains the order
     
     @State private var appScore: Int = 0
@@ -156,6 +156,14 @@ struct ContentView: View {
         } else {
             
         }
+        
+//        def winner(p1, p2):
+//            if (p1 + 1) % 3 == p2:
+//                return "Player 2 won"
+//            elif p1 == p2:
+//                return "It is a draw"
+//            else:
+//                return "Player 1 won"
         
         // Check if last round has been played:
         if roundsPlayed != 8 {
