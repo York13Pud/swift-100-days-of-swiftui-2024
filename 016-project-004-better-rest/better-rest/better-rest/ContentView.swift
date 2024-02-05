@@ -15,9 +15,9 @@ struct ContentView: View {
     @State private var sleepAmount = 8.0
     @State private var coffeeAmount = 1
     
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
-    @State private var alertVisible = false
+//    @State private var alertTitle = ""
+//    @State private var alertMessage = ""
+//    @State private var alertVisible = false
     
     @State private var bedTime: Date = defaultWakeTime
     
@@ -81,10 +81,10 @@ struct ContentView: View {
         }
         
         catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry. There was an error calculating your bedtime."
+//            alertTitle = "Error"
+//            alertMessage = "Sorry. There was an error calculating your bedtime."
         }
-        alertVisible = true
+        //alertVisible = true
         
     }
     
