@@ -14,8 +14,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            
             HStack {
-                Button("Tap Me") {
+                Button("Tap Me 1") {
                     animationAmount1 += 0.25
                 }
                 .padding(50)
@@ -27,7 +28,7 @@ struct ContentView: View {
                            value: animationAmount1) // Animates the size increase. .default has many alternatives.
                 //.blur(radius: (animationAmount1 - 1) * 3)
                 
-                Button("Tap Me") {
+                Button("Tap Me 2") {
                     animationAmount2 += 0.25
                 }
                 .padding(50)
@@ -38,8 +39,9 @@ struct ContentView: View {
                 .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true),
                            value: animationAmount2)
             }
+            
             HStack {
-                Button("Tap Me") {
+                Button("Tap Me 3") {
                     animationAmount3 += 0.25
                 }
                 .padding(50)
@@ -63,7 +65,7 @@ struct ContentView: View {
                 .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true),
                            value: animationAmount3)
                 
-                Button("Tap Me") {
+                Button("Tap Me 4") {
                     // do nothing
                 }
                 .padding(50)
@@ -71,6 +73,7 @@ struct ContentView: View {
                 .foregroundStyle(.white)
                 .clipShape(Circle())
             }
+            
             HStack {
                 Spacer()
                 
@@ -79,7 +82,7 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                Button("Tap Me") {
+                Button("Tap Me 5") {
                     animationAmount4 += 0.25
                 }
                 .padding(40)
@@ -90,8 +93,9 @@ struct ContentView: View {
                 
                 Spacer()
             }
+            
             HStack {
-                Button("Tap Me") {
+                Button("Tap Me 6") {
                     withAnimation(.interpolatingSpring(stiffness: 3, damping: 1)) {
                         animationAmount5 += 360
                     }
@@ -102,7 +106,7 @@ struct ContentView: View {
                 .clipShape(Circle())
                 .rotation3DEffect(.degrees(animationAmount5), axis: (x: 0, y: 1, z: 1))
                 
-                Button("Tap Me") {
+                Button("Tap Me 7") {
                     enabled.toggle()
                 }
                 .frame(width: 100, height: 100)
@@ -114,11 +118,13 @@ struct ContentView: View {
             }
             
             HStack {
-                Button("Tap Me") {
+                Button("Tap Me 8") {
                     withAnimation {
                         isShowingRed.toggle()
                     }
                 }
+                .buttonStyle(.borderedProminent)
+                    
 
                 if isShowingRed {
                     Rectangle()
