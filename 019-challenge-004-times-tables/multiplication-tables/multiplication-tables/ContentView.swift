@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var playerAnswer: Int = 0
     @State private var playerScore: Int = 0
     
+    @State private var isNewGame: Bool = false
+    @State private var scale: Double = 1.0
     @FocusState private var answerIsFocused: Bool
     
     var body: some View {
@@ -22,79 +24,93 @@ struct ContentView: View {
             Form {
                 
                 List {
-                    // To-Do: Once game starts, disable
-                    Section("Times Table") {
-                        Picker("Select Times Table", selection: $timesTableSelected) {
-                            ForEach(2..<13, id: \.self) {
-                                Text("\($0) Times Table")
+                    // Main menu
+                    if !isNewGame {
+                        Group {
+                            
+                            Section("Times Table") {
+                                Picker("Select Times Table", selection: $timesTableSelected) {
+                                    ForEach(2..<13, id: \.self) {
+                                        Text("\($0) Times Table")
+                                    }
+                                }
+                                .pickerStyle(.navigationLink)
+                            }
+                            
+                            Section("Questions") {
+                                // 2. Add a method to select the number of questions to show
+                                Slider(value: $questionsToAsk, in: 5...20, step: 5)
+                                
+                                Text("Ask \(Int(questionsToAsk)) Questions")
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                            
+                            Section() {
+                                Button() {
+                                    withAnimation {
+                                        isNewGame.toggle()
+                                    }
+                                } label: {
+                                    Text("Start Game")
+                                        .frame(maxWidth: .infinity)
+                                        .foregroundStyle(.white)
+                                }
+                                .listRowBackground(Color.clear)
+                                .buttonStyle(.borderedProminent)
                             }
                         }
-                        .pickerStyle(.navigationLink)
                     }
                     
-                    Section("Questions") {
-                        // 2. Add a method to select the number of questions to show
-                        Slider(value: $questionsToAsk, in: 5...20, step: 5)
-                        
-                        Text("Ask \(Int(questionsToAsk)) Questions")
-                            .frame(maxWidth: .infinity, alignment: .center)
-                    }
-                    
-                    Section("Question \(questionsAsked) of \(Int(questionsToAsk))") {
-                        HStack {
-                            Text("What is \(timesTableSelected) x \(timesTableMultiplier)")
-                            TextField("", value: $playerAnswer, format: .number)
-                                .keyboardType(.decimalPad) // Sets the keyboard type to a number pad on appear
-                                .focused($answerIsFocused)
-                                .multilineTextAlignment(.trailing)
+                    // Main game section
+                    else {
+                        Group {
                             
-                        }
-                    }
-                    
-                    Section() {
-                        Button() {
+                            Section("Question \(questionsAsked) of \(Int(questionsToAsk))") {
+                                HStack {
+                                    Text("What is \(timesTableSelected) x \(timesTableMultiplier)")
+                                    TextField("", value: $playerAnswer, format: .number)
+                                        .keyboardType(.decimalPad) // Sets the keyboard type to a number pad on appear
+                                        .focused($answerIsFocused)
+                                        .multilineTextAlignment(.trailing)
+                                }
+                            }
                             
-                        } label: {
-                            Text("New Game")
-                                .frame(maxWidth: .infinity)
-                                .foregroundStyle(.white)
-                        }
-                        .listRowBackground(Color.clear)
-                        .buttonStyle(.borderedProminent)
-                    }
-                    
-                    Section {
-                        HStack {
-                            Button() {
-                                
-                            } label: {
-                                Text("New Game")
-                                    .frame(maxWidth: .infinity)
-                                    .foregroundStyle(.white)
+                            Section {
+                                HStack {
+                                    Button() {
+                                        withAnimation {
+                                            isNewGame.toggle()
+                                        }
+                                    } label: {
+                                        Text("New Game")
+                                            .frame(maxWidth: .infinity)
+                                            .foregroundStyle(.white)
+                                    }
+                                    .listRowBackground(Color.clear)
+                                    .tint(.red)
+                                    .buttonStyle(.borderedProminent)
+                                    
+                                    Spacer()
+                                    Spacer()
+                                    
+                                    // To-Do: When games played = questions asked, disable button
+                                    Button() {
+                                        
+                                    } label: {
+                                        Text("Check Answer")
+                                            .frame(maxWidth: .infinity)
+                                            .foregroundStyle(.white)
+                                        
+                                    }
+                                    .listRowBackground(Color.clear)
+                                    .tint(.green)
+                                    .buttonStyle(.borderedProminent)
+                                }
                             }
                             .listRowBackground(Color.clear)
-                            .tint(.red)
-                            .buttonStyle(.borderedProminent)
-                            
-                            Spacer()
-                            Spacer()
-                            
-                            Button() {
-
-                            } label: {
-                                Text("Check Answer")
-                                    .frame(maxWidth: .infinity)
-                                    .foregroundStyle(.white)
-                                
-                            }
-                            .listRowBackground(Color.clear)
-                            .tint(.green)
-                            .buttonStyle(.borderedProminent)
-                            
-                            
                         }
-                    }.listRowBackground(Color.clear)
-                
+                    }
+                    
                     // Debug section for selections to see what they are:
                     Section(){
                         Text("tt selected: \(timesTableSelected)")
