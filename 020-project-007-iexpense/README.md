@@ -30,7 +30,13 @@ struct ContentView: View {
 
 However, if you change `struct user` to `class user`, the text will not update in the text boxes but the data in the class properties will be updated.
 
+## @Observable
+
+
+
 ## @StateObject
+
+Update: This is an older method. For future versions of Swift / SwiftUI, use the `@Observable` macro on the class.
 
 For a variable to be updated with with updates from a property in a class, the `@StateObject` wrapper is used instead of `@State`.
 
