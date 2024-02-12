@@ -144,7 +144,7 @@ struct ContentView: View {
     @State private var currentNumber = 1
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
 
                 List {
