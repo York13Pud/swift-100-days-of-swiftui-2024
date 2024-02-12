@@ -32,9 +32,34 @@ However, if you change `struct user` to `class user`, the text will not update i
 
 ## @Observable
 
+`@Observable` is a macro that wraps around the class to allow for properties in the class to be updated when they are changed by a view, such as a `TextField`. For example:
 
+``` swift
+import SwiftUI
 
-## @StateObject
+@Observable
+class User {
+    var firstName = "Bilbo"
+    var lastName = "Baggins"
+}
+
+struct ContentView: View {
+    @State private var user = User()
+
+    var body: some View {
+        VStack {
+            Text("Your name is \(user.firstName) \(user.lastName).")
+
+            TextField("First name", text: $user.firstName)
+            TextField("Last name", text: $user.lastName)
+        }
+    }
+}
+```
+
+Without `@Observable`, the properties in the class cannot be changed. There is another way to do this using `@StateObject` and `@Published`.
+
+## @StateObject And @Published (Pre-iOS 17 Alternative For @Observable)
 
 Update: This is an older method. For future versions of Swift / SwiftUI, use the `@Observable` macro on the class.
 
