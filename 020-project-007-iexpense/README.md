@@ -134,7 +134,7 @@ The `@Environment` property wrapper is used to get external information from the
 
 ## Deleting Items Using onDelete()
 
-The `onDelete()` modifier is used in a `List` item when you use a `ForEach` loop to allow for an item to be deleted.
+The `onDelete()` modifier is used in a `List` item when you use a `ForEach` loop to allow for an item to be deleted. You must use a `ForEach` loop when using `onDelete()` as it will not work as a modifier to a `List`.
 
 A function is required to perform the delete action. For example:
 
