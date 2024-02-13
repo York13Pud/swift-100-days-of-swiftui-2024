@@ -23,6 +23,12 @@ class User {
     var lastName = "Baggins"
 }
 
+// This is used for a Codable / JSONEncoder example:
+struct UserCodable: Codable {
+    let firstName: String
+    let lastName: String
+}
+
 struct ContentView: View {
     @State private var user = User()
     
@@ -37,6 +43,9 @@ struct ContentView: View {
     @State private var tapCount = UserDefaults.standard.integer(forKey: "Tap")
     
     @AppStorage("tapCountAppStorage") private var tapCountAppStorage = 0
+    
+    //
+    @State private var codableUser = UserCodable(firstName: "John", lastName: "Smith")
     
     var body: some View {
         VStack {
@@ -63,6 +72,14 @@ struct ContentView: View {
                 
                 TextField("First name", text: $user.firstName)
                 TextField("Last name", text: $user.lastName)
+                
+                Button("Save User") {
+                    let encoder = JSONEncoder()
+
+                    if let data = try? encoder.encode(codableUser) {
+                        UserDefaults.standard.set(data, forKey: "UserData")
+                    }
+                }
                 
                 // Adds one to tapCount and shows the value from the UserDefaults "Tap" key:
                 Button("Tap count: \(tapCount)") {
