@@ -24,11 +24,19 @@ class User {
 }
 
 struct ContentView: View {
-    @State public var showingSheet = false
     @State private var user = User()
-
+    
+    // These two are used for saving list items that are used on the sheet:
     @State private var numbers = [Int]()
     @State private var currentNumber = 1
+    
+    // This is used to show or hide the sheet:
+    @State public var showingSheet = false
+    
+    // These two vars are use for UserDefaults and AppStorage on the device:
+    @State private var tapCount = UserDefaults.standard.integer(forKey: "Tap")
+    
+    @AppStorage("tapCountAppStorage") private var tapCountAppStorage = 0
     
     var body: some View {
         VStack {
@@ -55,6 +63,17 @@ struct ContentView: View {
                 
                 TextField("First name", text: $user.firstName)
                 TextField("Last name", text: $user.lastName)
+                
+                // Adds one to tapCount and shows the value from the UserDefaults "Tap" key:
+                Button("Tap count: \(tapCount)") {
+                    tapCount += 1
+                    UserDefaults.standard.set(self.tapCount, forKey: "Tap")
+                }
+                
+                // Does the same as the above but uses AppStorage instead:
+                Button("Tap count: \(tapCountAppStorage)") {
+                    tapCountAppStorage += 1
+                }
                 
                 Button("Show Sheet") {
                     showingSheet.toggle()
