@@ -223,11 +223,15 @@ struct ContentView: View {
 }
 ```
 
-In the above, there are two methods shown for storing data. First is `UserDefaults` which has a lot of functionality to it. The second is `AppStorage` which is simpler but lacks the further customisation of `UserDefaults` and is only available for SwiftUI.
+In the above, there are two methods shown for storing data. First is `UserDefaults` which has a lot of functionality to it. The second is `AppStorage` which is simpler but lacks the further customisation of `UserDefaults` and is only available for SwiftUI. At the simplest level, they both do the same thing.
 
 Try not to store more than 0.5MB of user settings as it can slow down the loading of the app.
 
 There is a delay in writing data to UserDefaults. What it is exactly is unknown but it could be around two seconds.
+
+`UserDefaults` / `@AppStorage` cannot be used for complex data structures. Keep them to one item per key.
+
+Lastly, if you do use either, let Apple know when you submit an app to the App Store. They are skittish about using these as they can be used to spy on other apps.
 
 ## Archiving Swift Objects With Codable
 
