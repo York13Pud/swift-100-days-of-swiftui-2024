@@ -3,8 +3,8 @@
 import SwiftUI
 
 // Define a struct that has the properties for each expense:
-struct ExpenseItem: Identifiable {
-    let id = UUID()
+struct ExpenseItem: Identifiable, Codable {
+    var id = UUID()
     let name: String
     let type: String
     let amount: Double
@@ -13,7 +13,32 @@ struct ExpenseItem: Identifiable {
 // Define a class with one property that has an array of ExpenseItems
 @Observable
 class Expenses {
-    var items = [ExpenseItem]()
+    // Setup the initial array:
+    var items = [ExpenseItem]() {
+        // Check if there is any data to save:
+        didSet {
+            // Encode the data into to a JSON format:
+            if let encoded = try? JSONEncoder().encode(items) {
+                // Save the data in the array to UserDefaults with a key of "Items":
+                UserDefaults.standard.set(encoded, forKey: "Items")
+            }
+        }
+    }
+    
+    // Initialise the class and check if there is any data in the "Items" key in UserDefaults:
+    init() {
+        // In this part, it will check for the "Items" key in UserDefaults storage:
+        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
+            // If it is found, it will then try to decode the contents:
+            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
+                // And then populate the items arrays with the contents:
+                items = decodedItems
+                return
+            }
+        }
+        // If the key cannot be found, it will just set the items array to be an empty array:
+        items = []
+    }
 }
 
 struct ContentView: View {
@@ -25,11 +50,20 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            // Create a list for the expenses:
+            // Display a list for the expenses:
             List {
                 ForEach(expenses.items, id: \.id) { item in
-                    Text(item.name)
-                }
+                    // Show the name, category and value:
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(item.name)
+                                .font(.headline)
+                            Text(item.type)
+                        }
+
+                        Spacer()
+                        Text(item.amount, format: .currency(code: "USD"))
+                    }                }
                 // Add a delete option to each list item:
                 .onDelete(perform: removeItems)
                 
