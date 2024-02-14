@@ -60,11 +60,14 @@ struct ContentView: View {
                                 .font(.headline)
                             Text(item.type)
                         }
-
+                        
                         Spacer()
                         // Challenge: Change currency to users currency:
                         Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                    }                }
+                    }
+                    // Challenge: Add some formatting based on the value:
+                    .foregroundStyle(item.amount < 10 ? .blue : item.amount < 100 ? .orange: .red)
+                }
                 // Add a delete option to each list item:
                 .onDelete(perform: removeItems)
                 
