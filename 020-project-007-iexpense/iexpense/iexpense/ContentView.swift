@@ -62,7 +62,8 @@ struct ContentView: View {
                         }
 
                         Spacer()
-                        Text(item.amount, format: .currency(code: "USD"))
+                        // Challenge: Change currency to users currency:
+                        Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                     }                }
                 // Add a delete option to each list item:
                 .onDelete(perform: removeItems)
