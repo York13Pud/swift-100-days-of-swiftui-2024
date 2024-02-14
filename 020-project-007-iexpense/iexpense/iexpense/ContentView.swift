@@ -20,6 +20,9 @@ struct ContentView: View {
     // Create an instance of Expenses:
     @State private var expenses = Expenses()
     
+    // Used to show or hide the AddView sheet:
+    @State private var showingAddExpense: Bool = false
+    
     var body: some View {
         NavigationStack {
             // Create a list for the expenses:
@@ -42,9 +45,15 @@ struct ContentView: View {
             // Add a button to the navigation toolbar to add an item to the list
             .toolbar {
                 Button("Add Expense", systemImage: "plus") {
-                    let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
-                    expenses.items.append(expense)
+                    // Show the AddView sheet
+                    showingAddExpense = true
+                    // let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
+                    // expenses.items.append(expense)
                 }
+            }
+            .sheet(isPresented: $showingAddExpense) {
+                // Use the AddView in the sheets content:
+                AddView(expenses: expenses)
             }
         }
         
