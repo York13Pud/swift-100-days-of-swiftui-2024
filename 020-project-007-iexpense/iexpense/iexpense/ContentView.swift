@@ -48,6 +48,8 @@ struct ContentView: View {
     // Used to show or hide the AddView sheet:
     @State private var showingAddExpense: Bool = false
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationStack {
             // Display a list for the expenses:
@@ -77,7 +79,7 @@ struct ContentView: View {
                 //     Text(item.name)
                 // }
                 // .onDelete(perform: removeItems)
-                
+            
             }
             .navigationTitle("iExpense")
             // Add a button to the navigation toolbar to add an item to the list
