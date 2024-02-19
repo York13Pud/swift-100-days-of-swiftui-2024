@@ -11,6 +11,7 @@
 		28F0875A2B835F20002E29E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F087592B835F20002E29E9 /* ContentView.swift */; };
 		28F0875C2B835F20002E29E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F0875B2B835F20002E29E9 /* Assets.xcassets */; };
 		28F0875F2B835F20002E29E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F0875E2B835F20002E29E9 /* Preview Assets.xcassets */; };
+		28F087682B8371BD002E29E9 /* LazyStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F087672B8371BD002E29E9 /* LazyStacks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		28F087592B835F20002E29E9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		28F0875B2B835F20002E29E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28F0875E2B835F20002E29E9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		28F087672B8371BD002E29E9 /* LazyStacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyStacks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 		28F0874B2B835F20002E29E9 = {
 			isa = PBXGroup;
 			children = (
+				28F087672B8371BD002E29E9 /* LazyStacks.swift */,
 				28F087562B835F20002E29E9 /* code-examples */,
 				28F087552B835F20002E29E9 /* Products */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				28F0875A2B835F20002E29E9 /* ContentView.swift in Sources */,
 				28F087582B835F20002E29E9 /* code_examplesApp.swift in Sources */,
+				28F087682B8371BD002E29E9 /* LazyStacks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
