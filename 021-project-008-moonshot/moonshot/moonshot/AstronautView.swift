@@ -14,10 +14,7 @@ struct AstronautView: View {
                     .scaledToFit()
                     .padding()
 
-                Rectangle()
-                    .frame(height: 2)
-                    .foregroundStyle(.lightBackground)
-                    .padding(.horizontal)
+                horizontalLine()
                 
                 Text(astronaut.name)
                     .font(.title.bold())

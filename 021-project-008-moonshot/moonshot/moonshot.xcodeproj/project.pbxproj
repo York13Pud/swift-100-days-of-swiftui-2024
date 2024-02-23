@@ -19,6 +19,7 @@
 		28873C612B879A4600AB9C8B /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28873C602B879A4600AB9C8B /* AstronautView.swift */; };
 		288ED8682B84F27D00643EC4 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288ED8672B84F27D00643EC4 /* Mission.swift */; };
 		288ED86A2B85109500643EC4 /* Color-Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288ED8692B85109500643EC4 /* Color-Theme.swift */; };
+		28F4143D2B88E2920072581D /* HorizontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4143C2B88E2920072581D /* HorizontalLine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		28873C602B879A4600AB9C8B /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 		288ED8672B84F27D00643EC4 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		288ED8692B85109500643EC4 /* Color-Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Theme.swift"; sourceTree = "<group>"; };
+		28F4143C2B88E2920072581D /* HorizontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				288ED8692B85109500643EC4 /* Color-Theme.swift */,
 				28407F202B846DB6006F2B9F /* Astronaut.swift */,
 				288ED8672B84F27D00643EC4 /* Mission.swift */,
+				28F4143C2B88E2920072581D /* HorizontalLine.swift */,
 				28407F122B84691B006F2B9F /* Assets.xcassets */,
 				28407F142B84691B006F2B9F /* Preview Content */,
 			);
@@ -178,6 +181,7 @@
 				28407F112B84691A006F2B9F /* ContentView.swift in Sources */,
 				28407F0F2B84691A006F2B9F /* moonshotApp.swift in Sources */,
 				288ED8682B84F27D00643EC4 /* Mission.swift in Sources */,
+				28F4143D2B88E2920072581D /* HorizontalLine.swift in Sources */,
 				28407F232B846E29006F2B9F /* Bundle-Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
