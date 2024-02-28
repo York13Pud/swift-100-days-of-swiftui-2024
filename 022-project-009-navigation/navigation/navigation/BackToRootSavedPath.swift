@@ -1,11 +1,46 @@
 // This demo will show how to get back to the root screen when you have traversed
 // through several screens.
+//
+// Additionally, this example will save the paths that have been navigated through
+// to local storage so that when the app is closed and then reopended, it will go
+// back to the last screen it was on.
 
 import SwiftUI
 
+@Observable
+class PathStore {
+    var path: NavigationPath {
+        didSet {
+            save()
+        }
+    }
 
+    private let savePath = URL.documentsDirectory.appending(path: "SavedPath")
 
-struct DetailView: View {
+    init() {
+        if let data = try? Data(contentsOf: savePath) {
+            if let decoded = try? JSONDecoder().decode(NavigationPath.CodableRepresentation.self, from: data) {
+                path = NavigationPath(decoded)
+                return
+            }
+        }
+
+        // Still here? Start with an empty path.
+        path = NavigationPath()
+    }
+
+    func save() {
+        do {
+            guard let representation = path.codable else { return }
+            let data = try JSONEncoder().encode(representation)
+            try data.write(to: savePath)
+        } catch {
+            print("Failed to save navigation data")
+        }
+    }
+}
+
+struct DetailViewSaved: View {
     var number: Int
     
     @Binding var path: NavigationPath
@@ -25,13 +60,13 @@ struct DetailView: View {
     }
 }
 
-struct BackToRoot: View {
+struct BackToRootSavedPath: View {
     @State private var path = NavigationPath()
 
     var body: some View {
         NavigationStack(path: $path) {
             // Show the DetailView and bind it to path
-            DetailView(number: 0, path: $path)
+            DetailViewSaved(number: 0, path: $path)
                 .navigationDestination(for: Int.self) { i in
                     DetailView(number: i, path: $path)
                 }

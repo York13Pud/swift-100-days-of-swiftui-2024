@@ -28,6 +28,8 @@ struct ContentView: View {
             .navigationDestination(for: String.self) { selection in
                 Text("You selected the string \(selection)")
             }
+            .navigationTitle("Title")
+            .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
                 // This will set path to have an int of 556:
                 Button("Push 556") {
@@ -41,6 +43,9 @@ struct ContentView: View {
                     path.append("Hello")
                 }
             }
+            // Set the toolbar background to blue and the text to white:
+            .toolbarBackground(.blue)
+            .toolbarColorScheme(.dark)
         }
         
     }

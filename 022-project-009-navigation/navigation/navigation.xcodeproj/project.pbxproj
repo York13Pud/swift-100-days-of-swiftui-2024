@@ -12,6 +12,7 @@
 		28090E642B8CCE8300880C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28090E632B8CCE8300880C87 /* Assets.xcassets */; };
 		28090E672B8CCE8300880C87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28090E662B8CCE8300880C87 /* Preview Assets.xcassets */; };
 		2826D1542B8E45CC00EC1DF2 /* BackToRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826D1532B8E45CC00EC1DF2 /* BackToRoot.swift */; };
+		2826D1562B8E4C7200EC1DF2 /* BackToRootSavedPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2826D1552B8E4C7200EC1DF2 /* BackToRootSavedPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		28090E632B8CCE8300880C87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28090E662B8CCE8300880C87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2826D1532B8E45CC00EC1DF2 /* BackToRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToRoot.swift; sourceTree = "<group>"; };
+		2826D1552B8E4C7200EC1DF2 /* BackToRootSavedPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackToRootSavedPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				2826D1532B8E45CC00EC1DF2 /* BackToRoot.swift */,
+				2826D1552B8E4C7200EC1DF2 /* BackToRootSavedPath.swift */,
 				28090E5F2B8CCE8200880C87 /* navigationApp.swift */,
 				28090E612B8CCE8200880C87 /* ContentView.swift */,
 				28090E632B8CCE8300880C87 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2826D1562B8E4C7200EC1DF2 /* BackToRootSavedPath.swift in Sources */,
 				2826D1542B8E45CC00EC1DF2 /* BackToRoot.swift in Sources */,
 				28090E622B8CCE8200880C87 /* ContentView.swift in Sources */,
 				28090E602B8CCE8200880C87 /* navigationApp.swift in Sources */,
