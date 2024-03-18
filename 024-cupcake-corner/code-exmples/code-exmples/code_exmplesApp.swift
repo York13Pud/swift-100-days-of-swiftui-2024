@@ -6,7 +6,7 @@ import SwiftUI
 struct code_exmplesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ValidateDisableForm()
         }
     }
 }
