@@ -84,19 +84,11 @@ struct ContentView: View {
             .navigationTitle("iExpense")
             // Add a button to the navigation toolbar to add an item to the list
             .toolbar {
-                Button("Add Expense", systemImage: "plus") {
-                    // Show the AddView sheet
-                    showingAddExpense = true
-                    // let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
-                    // expenses.items.append(expense)
+                NavigationLink(destination: AddView(expenses: expenses)) {
+                    Button("Add Expense", systemImage: "plus") { return }
                 }
             }
-            .sheet(isPresented: $showingAddExpense) {
-                // Use the AddView in the sheets content:
-                AddView(expenses: expenses)
-            }
         }
-        
     }
     // Define a function to preform the deletion of an item in the list:
     func removeItems(at offsets: IndexSet) {
