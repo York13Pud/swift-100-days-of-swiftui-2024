@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280170332BA9D88F00F80BC7 /* HapticEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280170322BA9D88F00F80BC7 /* HapticEffects.swift */; };
 		284DE6AB2BA88A32007961CD /* code_exmplesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DE6AA2BA88A32007961CD /* code_exmplesApp.swift */; };
 		284DE6AD2BA88A32007961CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284DE6AC2BA88A32007961CD /* ContentView.swift */; };
 		284DE6AF2BA88A33007961CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284DE6AE2BA88A33007961CD /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		280170322BA9D88F00F80BC7 /* HapticEffects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticEffects.swift; sourceTree = "<group>"; };
 		284DE6A72BA88A32007961CD /* code-exmples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "code-exmples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		284DE6AA2BA88A32007961CD /* code_exmplesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = code_exmplesApp.swift; sourceTree = "<group>"; };
 		284DE6AC2BA88A32007961CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +43,7 @@
 		284DE69E2BA88A32007961CD = {
 			isa = PBXGroup;
 			children = (
+				280170322BA9D88F00F80BC7 /* HapticEffects.swift */,
 				284DE6B82BA88AC0007961CD /* CodableData.swift */,
 				284DE6BA2BA8A318007961CD /* LoadImageURL.swift */,
 				284DE6BC2BA8D27C007961CD /* ValidateDisableForm.swift */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				284DE6B92BA88AC0007961CD /* CodableData.swift in Sources */,
+				280170332BA9D88F00F80BC7 /* HapticEffects.swift in Sources */,
 				284DE6AD2BA88A32007961CD /* ContentView.swift in Sources */,
 				284DE6BD2BA8D27C007961CD /* ValidateDisableForm.swift in Sources */,
 				284DE6AB2BA88A32007961CD /* code_exmplesApp.swift in Sources */,
