@@ -5,24 +5,27 @@ import SwiftUI
 struct CheckoutView: View {
     var order: Order
     
-    @State private var confirmationMessage = ""
-    @State private var showingConfirmation = false
+    @State private var confirmationMessage: String = ""
+    @State private var showingConfirmation: Bool = false
+    
+    @State private var errorMessage: String = ""
+    @State private var showingError: Bool = false
     
     var body: some View {
         ScrollView {
             VStack {
                 AsyncImage(url: URL(string: "https://hws.dev/img/cupcakes@3x.jpg"), scale: 3) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
+                    image
+                        .resizable()
+                        .scaledToFit()
                 } placeholder: {
                     ProgressView()
                 }
                 .frame(height: 233)
-
+                
                 Text("Your total is \(order.cost, format: .currency(code: "USD"))")
                     .font(.title)
-
+                
                 Button("Place Order") {
                     Task {
                         await placeOrder()
@@ -36,10 +39,16 @@ struct CheckoutView: View {
         
         .scrollBounceBehavior(.basedOnSize)
         
-        .alert("Thank you!", isPresented: $showingConfirmation) {
+        .alert("Thank You!", isPresented: $showingConfirmation) {
             Button("OK") { }
         } message: {
             Text(confirmationMessage)
+        }
+        
+        .alert("Checkout Failed", isPresented: $showingError) {
+            Button("OK") { }
+        } message: {
+            Text(errorMessage)
         }
     }
     
@@ -63,7 +72,8 @@ struct CheckoutView: View {
             showingConfirmation = true
             
         } catch {
-            print("Checkout failed: \(error.localizedDescription)")
+            errorMessage = "Unable to process order. Please check your internet connection.)"
+            showingError = true
         }
         
     }
