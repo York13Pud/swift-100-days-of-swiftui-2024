@@ -2,6 +2,12 @@
 
 import Foundation
 
+extension String {
+  var isBlank: Bool {
+    return allSatisfy({ $0.isWhitespace })
+  }
+}
+
 @Observable
 class Order: Codable {
     enum CodingKeys: String, CodingKey {
@@ -42,7 +48,11 @@ class Order: Codable {
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
             return false
         }
-
+        
+        if name.isBlank || streetAddress.isBlank || city.isBlank || zip.isBlank {
+            return false
+        }
+        
         return true
     }
     
