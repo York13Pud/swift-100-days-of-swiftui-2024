@@ -1,5 +1,6 @@
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -8,5 +9,7 @@ struct CodeExamplesApp: App {
         WindowGroup {
             ContentView()
         }
+        // Initialise the model so that it can be used throughout the app:
+        .modelContainer(for: Student.self)
     }
 }
