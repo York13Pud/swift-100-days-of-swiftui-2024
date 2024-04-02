@@ -13,6 +13,7 @@
 		283B6A1C2BB076FF00EE3EAE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B6A1B2BB076FF00EE3EAE /* ContentView.swift */; };
 		283B6A1E2BB0770000EE3EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B6A1D2BB0770000EE3EAE /* Assets.xcassets */; };
 		283B6A212BB0770000EE3EAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283B6A202BB0770000EE3EAE /* Preview Assets.xcassets */; };
+		284989202BBC3D1B00DB0FF5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2849891F2BBC3D1B00DB0FF5 /* DetailView.swift */; };
 		28D589D22BB4538D005D037E /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D589D12BB4538C005D037E /* Book.swift */; };
 		28D589D42BB453E9005D037E /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D589D32BB453E9005D037E /* AddBookView.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 		283B6A1B2BB076FF00EE3EAE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		283B6A1D2BB0770000EE3EAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		283B6A202BB0770000EE3EAE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2849891F2BBC3D1B00DB0FF5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		28D589D12BB4538C005D037E /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		28D589D32BB453E9005D037E /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,6 +45,7 @@
 		283B6A0D2BB076FF00EE3EAE = {
 			isa = PBXGroup;
 			children = (
+				2849891F2BBC3D1B00DB0FF5 /* DetailView.swift */,
 				28303ED52BBAF87D006EF4B2 /* EmojiRatingView.swift */,
 				28303ED32BBAF393006EF4B2 /* RatingView.swift */,
 				28D589D32BB453E9005D037E /* AddBookView.swift */,
@@ -152,6 +155,7 @@
 				283B6A1C2BB076FF00EE3EAE /* ContentView.swift in Sources */,
 				283B6A1A2BB076FF00EE3EAE /* BookWorkApp.swift in Sources */,
 				28D589D22BB4538D005D037E /* Book.swift in Sources */,
+				284989202BBC3D1B00DB0FF5 /* DetailView.swift in Sources */,
 				28303ED42BBAF393006EF4B2 /* RatingView.swift in Sources */,
 				28303ED62BBAF87D006EF4B2 /* EmojiRatingView.swift in Sources */,
 				28D589D42BB453E9005D037E /* AddBookView.swift in Sources */,

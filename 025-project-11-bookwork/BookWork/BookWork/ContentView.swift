@@ -4,8 +4,12 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-
-    @Query var books: [Book]
+    
+    // Sort by title and then by author:
+    @Query(sort: [
+        SortDescriptor(\Book.title),
+        SortDescriptor(\Book.author)
+    ]) var books: [Book]
 
     @State private var showingAddScreen = false
     
@@ -27,6 +31,9 @@ struct ContentView: View {
                         }
                     }
                 }
+            }
+            .navigationDestination(for: Book.self) { book in
+                DetailView(book: book)
             }
            .navigationTitle("Bookworm")
            .toolbar {
