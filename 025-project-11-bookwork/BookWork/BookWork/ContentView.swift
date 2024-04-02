@@ -31,22 +31,39 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: deleteBooks)
             }
             .navigationDestination(for: Book.self) { book in
                 DetailView(book: book)
             }
            .navigationTitle("Bookworm")
            .toolbar {
+               ToolbarItem(placement: .topBarLeading) {
+                   EditButton()
+               }
+               
                ToolbarItem(placement: .topBarTrailing) {
                    Button("Add Book", systemImage: "plus") {
                        showingAddScreen.toggle()
                    }
                }
            }
+           
            .sheet(isPresented: $showingAddScreen) {
                AddBookView()
            }
        }
+       
+    }
+    
+    func deleteBooks(at offsets: IndexSet) {
+        for offset in offsets {
+            // find this book in our query
+            let book = books[offset]
+
+            // delete it from the context
+            modelContext.delete(book)
+        }
     }
 }
 
