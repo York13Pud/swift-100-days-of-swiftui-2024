@@ -43,9 +43,18 @@ struct AddBookView: View {
                         dismiss()
                     }
                 }
+                .disabled(diableSaveButton)
             }
             .navigationTitle("Add Book")
         }
+    }
+    
+    var diableSaveButton: Bool {
+        title.count < 5 ||
+        author.count < 5 ||
+        rating < 1 ||
+        genre.count < 1 ||
+        review.count < 5
     }
 }
 
