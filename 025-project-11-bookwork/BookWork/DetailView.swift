@@ -31,6 +31,10 @@ struct DetailView: View {
                 .font(.title)
                 .foregroundStyle(.secondary)
 
+            Text("Review Written: \(book.date.formatted(date: .complete, time: .omitted))")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+            
             Text(book.review)
                 .padding()
 
