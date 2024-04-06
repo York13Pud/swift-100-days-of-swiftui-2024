@@ -46,6 +46,13 @@ struct AddBookView: View {
                 .disabled(diableSaveButton)
             }
             .navigationTitle("Add Book")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Cancel", role: .cancel) {
+                        dismiss()
+                    }
+                }
+            }
         }
     }
     

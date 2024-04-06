@@ -7,6 +7,7 @@ struct ContentView: View {
     
     // Sort by title and then by author:
     @Query(sort: [
+        SortDescriptor(\Book.rating, order: .reverse),
         SortDescriptor(\Book.title),
         SortDescriptor(\Book.author)
     ]) var books: [Book]
@@ -19,15 +20,14 @@ struct ContentView: View {
                 ForEach(books) { book in
                     NavigationLink(value: book) {
                         HStack {
-                            EmojiRatingView(rating: book.rating)
-                                .font(.largeTitle)
-
                             VStack(alignment: .leading) {
                                 Text(book.title)
                                     .font(.headline)
                                     .foregroundStyle(book.rating == 1 ? .red : .primary)
                                 Text(book.author)
                                     .foregroundStyle(.secondary)
+                                RatingView(rating: .constant(book.rating))
+                                    .font(.footnote)
                             }
                         }
                     }
