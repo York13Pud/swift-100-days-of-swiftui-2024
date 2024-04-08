@@ -13,6 +13,7 @@ struct AddBookView: View {
     @State private var review = ""
     
     @State private var showingAddScreen = false
+    @State private var showingCancelAlert = false
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
@@ -49,9 +50,29 @@ struct AddBookView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Cancel", role: .cancel) {
-                        dismiss()
+                        if  title.count >= 1 ||
+                            author.count >= 1 ||
+                            review.count >= 1
+                        {
+                            showingCancelAlert = true
+                        } else {
+                            dismiss()
+                        }
                     }
                 }
+            }
+            .alert("Cancel Adding Book", isPresented: $showingCancelAlert) {
+                Button("Confirm", role: .destructive) {
+                    title = ""
+                    author = ""
+                    review = ""
+                    rating = 3
+                    
+                    dismiss()
+                }
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text("Are you sure?")
             }
         }
     }
