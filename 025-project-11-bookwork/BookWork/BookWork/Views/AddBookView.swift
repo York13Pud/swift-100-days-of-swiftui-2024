@@ -57,6 +57,7 @@ struct AddBookView: View {
                             showingCancelAlert = true
                         } else {
                             dismiss()
+                            
                         }
                     }
                 }
@@ -69,8 +70,13 @@ struct AddBookView: View {
                     rating = 3
                     
                     dismiss()
+                    showingCancelAlert.toggle()
                 }
-                Button("Cancel", role: .cancel) { }
+                
+                Button("Cancel", role: .cancel) {
+                    showingCancelAlert.toggle()
+                }
+                
             } message: {
                 Text("Are you sure?")
             }
