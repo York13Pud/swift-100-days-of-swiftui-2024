@@ -2,13 +2,6 @@
 
 import SwiftUI
 
-// Define a struct that has the properties for each expense:
-struct ExpenseItem: Identifiable, Codable {
-    var id = UUID()
-    let name: String
-    let type: String
-    let amount: Double
-}
 
 // Define a class with one property that has an array of ExpenseItems
 @Observable
