@@ -12,6 +12,7 @@
 		286CD3982B7B9BAC00C179BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286CD3972B7B9BAC00C179BD /* ContentView.swift */; };
 		286CD39A2B7B9BAD00C179BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286CD3992B7B9BAD00C179BD /* Assets.xcassets */; };
 		286CD39D2B7B9BAD00C179BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286CD39C2B7B9BAD00C179BD /* Preview Assets.xcassets */; };
+		289E1AC52BC5406C0096ABCB /* ExpenseItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1AC42BC5406C0096ABCB /* ExpenseItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		286CD3972B7B9BAC00C179BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		286CD3992B7B9BAD00C179BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		286CD39C2B7B9BAD00C179BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		289E1AC42BC5406C0096ABCB /* ExpenseItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +55,8 @@
 		286CD3942B7B9BAC00C179BD /* iexpense */ = {
 			isa = PBXGroup;
 			children = (
-				289E1AC32BC53C440096ABCB /* Views */,
 				289E1AC22BC53C390096ABCB /* Models */,
+				289E1AC32BC53C440096ABCB /* Views */,
 				286CD3952B7B9BAC00C179BD /* iexpenseApp.swift */,
 				286CD3992B7B9BAD00C179BD /* Assets.xcassets */,
 				286CD39B2B7B9BAD00C179BD /* Preview Content */,
@@ -73,6 +75,7 @@
 		289E1AC22BC53C390096ABCB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				289E1AC42BC5406C0096ABCB /* ExpenseItemModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				286CD3982B7B9BAC00C179BD /* ContentView.swift in Sources */,
+				289E1AC52BC5406C0096ABCB /* ExpenseItemModel.swift in Sources */,
 				286CD3962B7B9BAC00C179BD /* iexpenseApp.swift in Sources */,
 				28238F812B7CEEAE0029E426 /* AddView.swift in Sources */,
 			);
