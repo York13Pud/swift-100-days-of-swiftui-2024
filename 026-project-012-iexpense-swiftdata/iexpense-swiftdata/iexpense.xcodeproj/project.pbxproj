@@ -53,9 +53,9 @@
 		286CD3942B7B9BAC00C179BD /* iexpense */ = {
 			isa = PBXGroup;
 			children = (
+				289E1AC32BC53C440096ABCB /* Views */,
+				289E1AC22BC53C390096ABCB /* Models */,
 				286CD3952B7B9BAC00C179BD /* iexpenseApp.swift */,
-				286CD3972B7B9BAC00C179BD /* ContentView.swift */,
-				28238F802B7CEEAE0029E426 /* AddView.swift */,
 				286CD3992B7B9BAD00C179BD /* Assets.xcassets */,
 				286CD39B2B7B9BAD00C179BD /* Preview Content */,
 			);
@@ -68,6 +68,22 @@
 				286CD39C2B7B9BAD00C179BD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		289E1AC22BC53C390096ABCB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		289E1AC32BC53C440096ABCB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28238F802B7CEEAE0029E426 /* AddView.swift */,
+				286CD3972B7B9BAC00C179BD /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
