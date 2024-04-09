@@ -1,18 +1,21 @@
 //
 
+import SwiftData
 import SwiftUI
 
 struct AddView: View {
+
+    // When called, this will close the sheet with AddView on it:
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) var modelContext
+
     @State private var name: String = ""
     @State private var type: String = "Personal"
     @State private var amount: Double = 0.0
     
-    // When called, this will close the sheet with AddView on it:
-    @Environment(\.dismiss) var dismiss
-    
     let types = ["Business", "Personal"]
 
-    var expenses: Expenses
+//    var expenses: Expenses
     
     var body: some View {
         NavigationStack {
@@ -33,7 +36,7 @@ struct AddView: View {
                 Button("Save Expense") {
                     // This will save an item to the expenses array:
                     let item = ExpenseItem(name: name, type: type, amount: amount)
-                    expenses.items.append(item)
+                    modelContext.insert(item)
                     
                     // Close the AddView sheet:
                     dismiss()
@@ -45,5 +48,5 @@ struct AddView: View {
 }
 
 #Preview {
-    AddView(expenses: Expenses())
+    AddView()
 }

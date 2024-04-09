@@ -1,77 +1,39 @@
 //
-
+import SwiftData
 import SwiftUI
 
 
-// Define a class with one property that has an array of ExpenseItems
-@Observable
-class Expenses {
-    // Setup the initial array:
-    var items = [ExpenseItem]() {
-        // Check if there is any data to save:
-        didSet {
-            // Encode the data into to a JSON format:
-            if let encoded = try? JSONEncoder().encode(items) {
-                // Save the data in the array to UserDefaults with a key of "Items":
-                UserDefaults.standard.set(encoded, forKey: "Items")
-            }
-        }
-    }
-    
-    // Initialise the class and check if there is any data in the "Items" key in UserDefaults:
-    init() {
-        // In this part, it will check for the "Items" key in UserDefaults storage:
-        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
-            // If it is found, it will then try to decode the contents:
-            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
-                // And then populate the items arrays with the contents:
-                items = decodedItems
-                return
-            }
-        }
-        // If the key cannot be found, it will just set the items array to be an empty array:
-        items = []
-    }
-}
-
 struct ContentView: View {
-    // Create an instance of Expenses:
-    @State private var expenses = Expenses()
+    @Environment(\.modelContext) var modelContext
+    // @Environment(\.presentationMode) var presentationMode
     
+    @Query(sort: [SortDescriptor(\ExpenseItem.name)]) var expenses: [ExpenseItem]
+   
     // Used to show or hide the AddView sheet:
     @State private var showingAddExpense: Bool = false
-    
-    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationStack {
             // Display a list for the expenses:
             List {
-                ForEach(expenses.items, id: \.id) { item in
+                ForEach(expenses) { expense in
                     // Show the name, category and value:
                     HStack {
                         VStack(alignment: .leading) {
-                            Text(item.name)
+                            Text(expense.name)
                                 .font(.headline)
-                            Text(item.type)
+                            Text(expense.type)
                         }
                         
                         Spacer()
                         // Challenge: Change currency to users currency:
-                        Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        Text(expense.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                     }
                     // Challenge: Add some formatting based on the value:
-                    .foregroundStyle(item.amount < 10 ? .blue : item.amount < 100 ? .orange: .red)
+                    .foregroundStyle(expense.amount < 10 ? .blue : expense.amount < 100 ? .orange: .red)
                 }
                 // Add a delete option to each list item:
-                .onDelete(perform: removeItems)
-                
-                // Another option to do the ForEach loop with a little less code.
-                // The loop will know that the list item has an identifiable id by default:
-                // ForEach(expenses.items) { item in
-                //     Text(item.name)
-                // }
-                // .onDelete(perform: removeItems)
+                .onDelete(perform: deleteExpense)
             
             }
             .navigationTitle("iExpense")
@@ -80,20 +42,24 @@ struct ContentView: View {
                 Button("Add Expense", systemImage: "plus") {
                     // Show the AddView sheet
                     showingAddExpense = true
-                    // let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
-                    // expenses.items.append(expense)
                 }
             }
             .sheet(isPresented: $showingAddExpense) {
                 // Use the AddView in the sheets content:
-                AddView(expenses: expenses)
+                AddView()
             }
         }
         
     }
     // Define a function to preform the deletion of an item in the list:
-    func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+    func deleteExpense(at offsets: IndexSet) {
+        for offset in offsets {
+            // find this book in our query
+            let expense = expenses[offset]
+
+            // delete it from the context
+            modelContext.delete(expense)
+        }
     }
 }
 
