@@ -13,6 +13,7 @@
 		286CD39A2B7B9BAD00C179BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286CD3992B7B9BAD00C179BD /* Assets.xcassets */; };
 		286CD39D2B7B9BAD00C179BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 286CD39C2B7B9BAD00C179BD /* Preview Assets.xcassets */; };
 		289E1AC52BC5406C0096ABCB /* ExpenseItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1AC42BC5406C0096ABCB /* ExpenseItemModel.swift */; };
+		289E1AC72BC595F50096ABCB /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1AC62BC595F50096ABCB /* ExpensesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		286CD3992B7B9BAD00C179BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		286CD39C2B7B9BAD00C179BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		289E1AC42BC5406C0096ABCB /* ExpenseItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemModel.swift; sourceTree = "<group>"; };
+		289E1AC62BC595F50096ABCB /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				28238F802B7CEEAE0029E426 /* AddView.swift */,
+				289E1AC62BC595F50096ABCB /* ExpensesView.swift */,
 				286CD3972B7B9BAC00C179BD /* ContentView.swift */,
 			);
 			path = Views;
@@ -162,6 +165,7 @@
 				286CD3982B7B9BAC00C179BD /* ContentView.swift in Sources */,
 				289E1AC52BC5406C0096ABCB /* ExpenseItemModel.swift in Sources */,
 				286CD3962B7B9BAC00C179BD /* iexpenseApp.swift in Sources */,
+				289E1AC72BC595F50096ABCB /* ExpensesView.swift in Sources */,
 				28238F812B7CEEAE0029E426 /* AddView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

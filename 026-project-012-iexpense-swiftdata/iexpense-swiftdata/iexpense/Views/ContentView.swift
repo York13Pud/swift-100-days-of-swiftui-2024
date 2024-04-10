@@ -5,40 +5,46 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    // @Environment(\.presentationMode) var presentationMode
-    
-    @Query(sort: [SortDescriptor(\ExpenseItem.name)]) var expenses: [ExpenseItem]
-   
+       
     // Used to show or hide the AddView sheet:
     @State private var showingAddExpense: Bool = false
+    @State private var filteredExpenseType: String = "All"
+    @State private var sortOrder = [
+        SortDescriptor(\ExpenseItem.name),
+        SortDescriptor(\ExpenseItem.amount),
+    ]
     
     var body: some View {
         NavigationStack {
-            // Display a list for the expenses:
-            List {
-                ForEach(expenses) { expense in
-                    // Show the name, category and value:
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(expense.name)
-                                .font(.headline)
-                            Text(expense.type)
-                        }
-                        
-                        Spacer()
-                        // Challenge: Change currency to users currency:
-                        Text(expense.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                    }
-                    // Challenge: Add some formatting based on the value:
-                    .foregroundStyle(expense.amount < 10 ? .blue : expense.amount < 100 ? .orange: .red)
-                }
-                // Add a delete option to each list item:
-                .onDelete(perform: deleteExpense)
+            ExpensesView(expenseType: filteredExpenseType, sortOrder: sortOrder)
             
-            }
             .navigationTitle("iExpense")
+            
             // Add a button to the navigation toolbar to add an item to the list
             .toolbar {
+                Menu("Filter", systemImage: "line.3.horizontal.decrease.circle") {
+                    Picker("Filter", selection: $filteredExpenseType) {
+                        Text("Show All").tag("All")
+                        Text("Show Business Expenses").tag("Business")
+                        Text("Show Personal Expenses").tag("Personal")
+                    }
+                }
+                
+                Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                    Picker("Sort", selection: $sortOrder) {
+                        Text("Sort by Name")
+                            .tag([
+                                SortDescriptor(\ExpenseItem.name)
+                            ])
+                        
+                        Text("Sort By Amount")
+                            .tag([
+                                SortDescriptor(\ExpenseItem.amount),
+                                SortDescriptor(\ExpenseItem.name)
+                            ])
+                    }
+                }
+                
                 Button("Add Expense", systemImage: "plus") {
                     // Show the AddView sheet
                     showingAddExpense = true
@@ -49,20 +55,10 @@ struct ContentView: View {
                 AddView()
             }
         }
-        
-    }
-    // Define a function to preform the deletion of an item in the list:
-    func deleteExpense(at offsets: IndexSet) {
-        for offset in offsets {
-            // find this book in our query
-            let expense = expenses[offset]
-
-            // delete it from the context
-            modelContext.delete(expense)
-        }
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: ExpenseItem.self)
 }
