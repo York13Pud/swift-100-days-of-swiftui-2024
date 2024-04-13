@@ -1,5 +1,6 @@
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -8,5 +9,6 @@ struct UserFriendsSwiftDataApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: [User.self, Friend.self])
     }
 }
