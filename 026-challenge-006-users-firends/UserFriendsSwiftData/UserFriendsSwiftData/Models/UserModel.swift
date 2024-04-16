@@ -15,7 +15,7 @@ class User {
     var address: String
     var about: String
     var registered: Date
-    var friends = [Friend]()
+    @Relationship(deleteRule: .cascade) var friends = [Friend]()
     
     init(id: UUID, isActive: Bool, name: String, age: Int, company: String, email: String, address: String, about: String, registered: Date, friends: [Friend?]) {
         self.id = id
@@ -27,6 +27,7 @@ class User {
         self.address = address
         self.about = about
         self.registered = registered
+        self.friends = []
     }
     
 }
