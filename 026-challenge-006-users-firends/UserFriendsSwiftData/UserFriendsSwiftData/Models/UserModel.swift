@@ -3,7 +3,6 @@
 import Foundation
 import SwiftData
 
-
 @Model
 class User {
     var id: UUID
@@ -15,9 +14,11 @@ class User {
     var address: String
     var about: String
     var registered: Date
-    @Relationship(deleteRule: .cascade) var friends = [Friend]()
     
-    init(id: UUID, isActive: Bool, name: String, age: Int, company: String, email: String, address: String, about: String, registered: Date, friends: [Friend?]) {
+    // inverse, along with [Friend]? will create a many-to-many relationship:
+    @Relationship(deleteRule: .cascade, inverse: \Friend.usersFreiends) var friends: [Friend]?
+        
+    init(id: UUID, isActive: Bool, name: String, age: Int, company: String, email: String, address: String, about: String, registered: Date) {
         self.id = id
         self.isActive = isActive
         self.name = name
@@ -27,7 +28,6 @@ class User {
         self.address = address
         self.about = about
         self.registered = registered
-        self.friends = []
     }
     
 }

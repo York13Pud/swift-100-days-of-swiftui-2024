@@ -9,6 +9,6 @@ struct UserFriendsSwiftDataApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [User.self, Friend.self])
+        .modelContainer(for: [User.self])
     }
 }

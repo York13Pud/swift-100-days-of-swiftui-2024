@@ -14,8 +14,6 @@
 import SwiftData
 import SwiftUI
 
-
-
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Query var users: [User]
@@ -40,19 +38,22 @@ struct ContentView: View {
                 
                 Button("Add Data", systemImage: "plus") {
 
-//                    let newFriend1 = Friend(id: UUID(), name: "John Smith")
-//                    modelContext.insert(newFriend1)
-//                    
-//                    let newFriend2 = Friend(id: UUID(), name: "Jane Smith")
-//                    modelContext.insert(newFriend2)
+                    let newFriend1 = Friend(id: UUID(), name: "John Smith")
+                    modelContext.insert(newFriend1)
+                    
+                    let newFriend2 = Friend(id: UUID(), name: "Jane Smith")
+                    modelContext.insert(newFriend2)
  
-//                    print(johnSmith.first?.name ?? "Error")
-                    let newUser = User(id: UUID(), isActive: true, name: "Joe Blogs", age: 40, company: "Joe Co.", email: "joe@joe.com", address: "Address", about: "About", registered: .now, friends: [])
-                    modelContext.insert(newUser)
+                    let newUser1 = User(id: UUID(), isActive: true, name: "Joe Blogs", age: 40, company: "Joe Co.", email: "joe@joe.com", address: "Address", about: "About", registered: .now)
+                    modelContext.insert(newUser1)
                     
-//                    newUser.friends.append(friends.first?)
-//                    newUser.friends.append(newFriend2)
+                    newUser1.friends?.append(newFriend1)
+                    newUser1.friends?.append(newFriend2)
                     
+                    let newUser2 = User(id: UUID(), isActive: true, name: "Jane Blogs", age: 38, company: "Joe Co.", email: "joe@joe.com", address: "Address", about: "About", registered: .now)
+                    modelContext.insert(newUser2)
+                    newUser2.friends?.append(newFriend1)
+                    newUser2.friends?.append(newFriend2)
                 }
             }
         }
