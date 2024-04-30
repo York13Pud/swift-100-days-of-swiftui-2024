@@ -2,12 +2,33 @@
 
 import SwiftUI
 
-struct UserDetailView: View {
+struct UserView: View {
+    let user: User
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Section("About") {
+                Text(user.about)
+                    .padding(.vertical)
+            }
+
+            Section("Contact details") {
+                Text("Address: \(user.address)")
+                Text("Company: \(user.company)")
+            }
+
+            Section("Friends") {
+                ForEach(user.friends) { friend in
+                    Text(friend.name)
+                }
+            }
+        }
+        .listStyle(.grouped)
+        .navigationTitle(user.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    UserDetailView()
+    UserView(user: .example)
 }

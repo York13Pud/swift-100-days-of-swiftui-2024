@@ -15,3 +15,10 @@ extension ModelContext {
         }
     }
 }
+
+// Add this to the NavigationStack under .navigationTitle:
+//            .toolbar {
+//                Button("Show DB Path") {
+//                    print(modelContext.sqliteCommand)
+//                }
+//            }
