@@ -17,32 +17,24 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     
-    @Query(sort: \User.name) private var users: [User]
+    @Query(sort: [
+        SortDescriptor(\User.isActive, order: .reverse),
+        SortDescriptor(\User.name)
+    ]) private var users: [User]
     
     var body: some View {
         NavigationStack {
             List(users) { user in
                 NavigationLink(value: user) {
-                    HStack {
-                        // Show a circle to depict if the user is active (green) or inactive (red):
-                        Circle()
-                            .fill(user.isActive ? .green : .red)
-                            .frame(width: 10)
-                        
-                        // Show the users name:
-                        Text(user.name)
-                    }
+                    UserRowView(userRow: user)
                 }
             }
+            .scrollContentBackground(.hidden)
             .navigationTitle("FriendFace")
             .navigationDestination(for: User.self) { user in
-                UserView(user: user)
+                UserDetailView(user: user)
             }
-//            .toolbar {
-//                Button("Show DB Path") {
-//                    print(modelContext.sqliteCommand)
-//                }
-//            }
+            
             .overlay {
                 if users.isEmpty {
                     ContentUnavailableView(label: {
@@ -51,13 +43,22 @@ struct ContentView: View {
                         Text("No user data could be found")
                     }, actions: {
                         Button("Get Users") { Task { await fetchUsers() } }
+                            .foregroundStyle(.blue)
                     })
                 }
             }
-//            .task {
-//                await fetchUsers()
-//            }
-        }
+            
+            // Uncomment the below three lines to have the data load when the view is loaded:
+            //.task {
+            //    await fetchUsers()
+            //}
+ 
+        } .tint(.white) // Sets the navbar buttons to white:
+    }
+    
+    // Setup the theme for the navbar:
+    init() {
+        navBarSettings()
     }
     
     func fetchUsers() async {

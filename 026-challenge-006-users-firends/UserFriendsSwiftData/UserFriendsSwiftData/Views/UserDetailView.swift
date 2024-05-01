@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct UserView: View {
+struct UserDetailView: View {
     let user: User
 
     var body: some View {
@@ -30,5 +30,5 @@ struct UserView: View {
 }
 
 #Preview {
-    UserView(user: .example)
+    UserDetailView(user: .example)
 }

@@ -11,6 +11,9 @@
 		28039C4D2BC805C100318EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28039C4C2BC805C100318EF2 /* ContentView.swift */; };
 		28039C4F2BC805C200318EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28039C4E2BC805C200318EF2 /* Assets.xcassets */; };
 		28039C522BC805C200318EF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28039C512BC805C200318EF2 /* Preview Assets.xcassets */; };
+		28839E6B2BE2922A00141B30 /* NavBarSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28839E6A2BE2922A00141B30 /* NavBarSettings.swift */; };
+		28839E6F2BE2942A00141B30 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28839E6E2BE2942A00141B30 /* UserRowView.swift */; };
+		28839E712BE2947F00141B30 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28839E702BE2947F00141B30 /* Extensions.swift */; };
 		28882D8E2BCAC50100C7B0C5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28882D8D2BCAC50100C7B0C5 /* Constants.swift */; };
 		28882D902BCAC60F00C7B0C5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28882D8F2BCAC60F00C7B0C5 /* UserModel.swift */; };
 		28882D922BCAC61F00C7B0C5 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28882D912BCAC61F00C7B0C5 /* FriendModel.swift */; };
@@ -24,6 +27,9 @@
 		28039C4C2BC805C100318EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		28039C4E2BC805C200318EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28039C512BC805C200318EF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		28839E6A2BE2922A00141B30 /* NavBarSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarSettings.swift; sourceTree = "<group>"; };
+		28839E6E2BE2942A00141B30 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
+		28839E702BE2947F00141B30 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		28882D8D2BCAC50100C7B0C5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		28882D8F2BCAC60F00C7B0C5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		28882D912BCAC61F00C7B0C5 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
@@ -79,9 +85,19 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		28839E6C2BE293A000141B30 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				28839E6A2BE2922A00141B30 /* NavBarSettings.swift */,
+				28839E702BE2947F00141B30 /* Extensions.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		28882D8A2BCAC4C200C7B0C5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				28839E6C2BE293A000141B30 /* Settings */,
 				28882D952BCB187C00C7B0C5 /* Helpers */,
 				28882D8D2BCAC50100C7B0C5 /* Constants.swift */,
 			);
@@ -102,6 +118,7 @@
 			children = (
 				28039C4C2BC805C100318EF2 /* ContentView.swift */,
 				28882D932BCB0CA800C7B0C5 /* UserDetailView.swift */,
+				28839E6E2BE2942A00141B30 /* UserRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,8 +202,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				28882D922BCAC61F00C7B0C5 /* FriendModel.swift in Sources */,
+				28839E6F2BE2942A00141B30 /* UserRowView.swift in Sources */,
 				28039C4D2BC805C100318EF2 /* ContentView.swift in Sources */,
+				28839E6B2BE2922A00141B30 /* NavBarSettings.swift in Sources */,
 				28039C4B2BC805C100318EF2 /* UserFriendsSwiftDataApp.swift in Sources */,
+				28839E712BE2947F00141B30 /* Extensions.swift in Sources */,
 				28882D902BCAC60F00C7B0C5 /* UserModel.swift in Sources */,
 				28882D942BCB0CA800C7B0C5 /* UserDetailView.swift in Sources */,
 				28882D972BCB189A00C7B0C5 /* ShowSQLite.swift in Sources */,
