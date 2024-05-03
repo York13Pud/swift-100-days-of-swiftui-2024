@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		286BAD502BE52BBA008F5167 /* CoreImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286BAD4F2BE52BBA008F5167 /* CoreImage.swift */; };
+		286BAD522BE52E84008F5167 /* NoContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286BAD512BE52E84008F5167 /* NoContent.swift */; };
 		28FFB2F62BE3B638006F9590 /* CodeExamplesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FFB2F52BE3B638006F9590 /* CodeExamplesApp.swift */; };
 		28FFB2F82BE3B638006F9590 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FFB2F72BE3B638006F9590 /* ContentView.swift */; };
 		28FFB2FA2BE3B638006F9590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28FFB2F92BE3B638006F9590 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		286BAD4E2BE523DC008F5167 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		286BAD4F2BE52BBA008F5167 /* CoreImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImage.swift; sourceTree = "<group>"; };
+		286BAD512BE52E84008F5167 /* NoContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContent.swift; sourceTree = "<group>"; };
 		28FFB2F22BE3B637006F9590 /* CodeExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28FFB2F52BE3B638006F9590 /* CodeExamplesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeExamplesApp.swift; sourceTree = "<group>"; };
 		28FFB2F72BE3B638006F9590 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,11 +59,13 @@
 		28FFB2F42BE3B637006F9590 /* CodeExamples */ = {
 			isa = PBXGroup;
 			children = (
+				286BAD4F2BE52BBA008F5167 /* CoreImage.swift */,
 				28FFB3032BE3DCE1006F9590 /* ImageSwiftUI.swift */,
 				28FFB2F52BE3B638006F9590 /* CodeExamplesApp.swift */,
 				28FFB2F72BE3B638006F9590 /* ContentView.swift */,
 				28FFB2F92BE3B638006F9590 /* Assets.xcassets */,
 				28FFB2FB2BE3B638006F9590 /* Preview Content */,
+				286BAD512BE52E84008F5167 /* NoContent.swift */,
 			);
 			path = CodeExamples;
 			sourceTree = "<group>";
@@ -144,6 +150,8 @@
 			files = (
 				28FFB2F82BE3B638006F9590 /* ContentView.swift in Sources */,
 				28FFB3042BE3DCE1006F9590 /* ImageSwiftUI.swift in Sources */,
+				286BAD522BE52E84008F5167 /* NoContent.swift in Sources */,
+				286BAD502BE52BBA008F5167 /* CoreImage.swift in Sources */,
 				28FFB2F62BE3B638006F9590 /* CodeExamplesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
