@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct CoreImageSwiftUI: View {
+struct ImageSwiftUI: View {
     @State private var image: Image?
     
     var body: some View {
@@ -20,5 +20,5 @@ struct CoreImageSwiftUI: View {
 }
 
 #Preview {
-    CoreImageSwiftUI()
+    ImageSwiftUI()
 }
