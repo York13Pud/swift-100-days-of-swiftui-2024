@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28109A292BE6C7C700780958 /* PhotoImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28109A282BE6C7C700780958 /* PhotoImport.swift */; };
 		286BAD502BE52BBA008F5167 /* CoreImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286BAD4F2BE52BBA008F5167 /* CoreImage.swift */; };
 		286BAD522BE52E84008F5167 /* NoContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286BAD512BE52E84008F5167 /* NoContent.swift */; };
 		28FFB2F62BE3B638006F9590 /* CodeExamplesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FFB2F52BE3B638006F9590 /* CodeExamplesApp.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28109A282BE6C7C700780958 /* PhotoImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImport.swift; sourceTree = "<group>"; };
 		286BAD4E2BE523DC008F5167 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		286BAD4F2BE52BBA008F5167 /* CoreImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImage.swift; sourceTree = "<group>"; };
 		286BAD512BE52E84008F5167 /* NoContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoContent.swift; sourceTree = "<group>"; };
@@ -59,13 +61,14 @@
 		28FFB2F42BE3B637006F9590 /* CodeExamples */ = {
 			isa = PBXGroup;
 			children = (
-				286BAD4F2BE52BBA008F5167 /* CoreImage.swift */,
-				28FFB3032BE3DCE1006F9590 /* ImageSwiftUI.swift */,
 				28FFB2F52BE3B638006F9590 /* CodeExamplesApp.swift */,
 				28FFB2F72BE3B638006F9590 /* ContentView.swift */,
+				286BAD4F2BE52BBA008F5167 /* CoreImage.swift */,
+				28FFB3032BE3DCE1006F9590 /* ImageSwiftUI.swift */,
+				286BAD512BE52E84008F5167 /* NoContent.swift */,
+				28109A282BE6C7C700780958 /* PhotoImport.swift */,
 				28FFB2F92BE3B638006F9590 /* Assets.xcassets */,
 				28FFB2FB2BE3B638006F9590 /* Preview Content */,
-				286BAD512BE52E84008F5167 /* NoContent.swift */,
 			);
 			path = CodeExamples;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				286BAD522BE52E84008F5167 /* NoContent.swift in Sources */,
 				286BAD502BE52BBA008F5167 /* CoreImage.swift in Sources */,
 				28FFB2F62BE3B638006F9590 /* CodeExamplesApp.swift in Sources */,
+				28109A292BE6C7C700780958 /* PhotoImport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
