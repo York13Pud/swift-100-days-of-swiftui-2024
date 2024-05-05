@@ -7,13 +7,21 @@ import PhotosUI
 import SwiftUI
 
 struct ContentView: View {
-    @State private var filterIntensity = 0.5
+    // Slider values:
+    @State private var filterIntensity = 0.0
+    @State private var filterRadius = 0.0
+    @State private var filterScale = 0.0
+
+    // Filter settings:
+    @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     @State private var processedImage: Image?
     @State private var selectedItem: PhotosPickerItem?
     
+    // View visibility / enables:
+    @State private var imageShown = false
     @State private var showingFilters = false
     
-    @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
+
 
     let context = CIContext()
     
@@ -40,25 +48,58 @@ struct ContentView: View {
                 Spacer()
                 
                 // Display a slider to change the intensity of the filter
-                HStack {
-                    Text("Intensity")
-                    Slider(value: $filterIntensity)
-                        .onChange(of: filterIntensity, applyProcessing)
+                Group {
+                    HStack {
+                        Text("Intensity")
+                        Slider(value: $filterIntensity)
+                            .onChange(of: filterIntensity, applyProcessing)
+                        Text(String(format: "%.2f", filterIntensity))
+                    }
+                    .padding(.vertical)
+                    
+                    HStack {
+                        Text("Radius")
+                        Slider(value: $filterRadius)
+                            .onChange(of: filterRadius, applyProcessing)
+                        Text(String(format: "%.2f", filterRadius))
+                    }
+                    .padding(.vertical)
+                    
+                    HStack {
+                        Text("Scale")
+                        Slider(value: $filterScale)
+                            .onChange(of: filterScale, applyProcessing)
+                        Text(String(format: "%.2f", filterScale))
+                    }
+                    .padding(.vertical)
+                    
+                    HStack {
+                        // Display a pop-up sheet to change the filter that is to be used:
+                        Button("Change Filter") {
+                            changeFilter()
+                        }
+                        
+                        Spacer()
+                        
+                        Button("Reset Sliders") {
+                            filterIntensity = 0.0
+                            filterRadius = 0.0
+                            filterScale = 0.0
+                        }
+                    }
                 }
-                .padding(.vertical)
-                
-                // Display a pop-up sheet to change the filter that is to be used:
-                HStack {
-                    Button("Change Filter", action: changeFilter)
-
-                    Spacer()
-
-                    // share the picture
-                }
+                .disabled(!imageShown)
             }
             .padding([.horizontal, .bottom])
             .navigationTitle("InstaFilter")
+            .toolbar {
+                // Show a share button if an image has been selected:
+                if let processedImage {
+                    ShareLink(item: processedImage, preview: SharePreview("Instafilter image", image: processedImage))
+                }
+            }
             .confirmationDialog("Select a filter", isPresented: $showingFilters) {
+                Button("Box Blur") { setFilter(CIFilter.boxBlur()) } // Added by me :-)
                 Button("Crystallize") { setFilter(CIFilter.crystallize()) }
                 Button("Edges") { setFilter(CIFilter.edges()) }
                 Button("Gaussian Blur") { setFilter(CIFilter.gaussianBlur()) }
@@ -100,14 +141,18 @@ struct ContentView: View {
         
         // Next, match the input key and pass the filter value to it:
         if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }
-        if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey) }
-        if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
+        if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(filterRadius * 200, forKey: kCIInputRadiusKey) }
+        if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(filterScale * 10, forKey: kCIInputScaleKey) }
         
+        // Apply the filter to the image
         guard let outputImage = currentFilter.outputImage else { return }
         guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return }
 
+        // Pass the filtered image back to processedImage so it can be shown on the screen:
         let uiImage = UIImage(cgImage: cgImage)
         processedImage = Image(uiImage: uiImage)
+        
+        imageShown = true
     }
 }
 
