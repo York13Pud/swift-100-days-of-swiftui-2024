@@ -13,6 +13,8 @@
 		2865F9402BE8E57F000CC77B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2865F93F2BE8E57F000CC77B /* Preview Assets.xcassets */; };
 		2865F9472BE9098B000CC77B /* DocumentsFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865F9462BE9098B000CC77B /* DocumentsFolder.swift */; };
 		2865F9492BE91072000CC77B /* EnumViewStateSwitching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2865F9482BE91072000CC77B /* EnumViewStateSwitching.swift */; };
+		288E877A2BEA3160000EE9B8 /* MapKitExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E87792BEA3160000EE9B8 /* MapKitExample.swift */; };
+		288E877C2BEA47CA000EE9B8 /* FaceTouchIDExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288E877B2BEA47CA000EE9B8 /* FaceTouchIDExamples.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		2865F93F2BE8E57F000CC77B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2865F9462BE9098B000CC77B /* DocumentsFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsFolder.swift; sourceTree = "<group>"; };
 		2865F9482BE91072000CC77B /* EnumViewStateSwitching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumViewStateSwitching.swift; sourceTree = "<group>"; };
+		288E87792BEA3160000EE9B8 /* MapKitExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitExample.swift; sourceTree = "<group>"; };
+		288E877B2BEA47CA000EE9B8 /* FaceTouchIDExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTouchIDExamples.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				2865F93A2BE8E57E000CC77B /* ContentView.swift */,
 				2865F9462BE9098B000CC77B /* DocumentsFolder.swift */,
 				2865F9482BE91072000CC77B /* EnumViewStateSwitching.swift */,
+				288E877B2BEA47CA000EE9B8 /* FaceTouchIDExamples.swift */,
+				288E87792BEA3160000EE9B8 /* MapKitExample.swift */,
 				2865F93C2BE8E57F000CC77B /* Assets.xcassets */,
 				2865F93E2BE8E57F000CC77B /* Preview Content */,
 			);
@@ -146,6 +152,8 @@
 				2865F9492BE91072000CC77B /* EnumViewStateSwitching.swift in Sources */,
 				2865F93B2BE8E57E000CC77B /* ContentView.swift in Sources */,
 				2865F9472BE9098B000CC77B /* DocumentsFolder.swift in Sources */,
+				288E877A2BEA3160000EE9B8 /* MapKitExample.swift in Sources */,
+				288E877C2BEA47CA000EE9B8 /* FaceTouchIDExamples.swift in Sources */,
 				2865F9392BE8E57E000CC77B /* CodeExamplesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +290,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CodeExamples/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "It is needed to unlock the users data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -310,6 +319,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CodeExamples/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "It is needed to unlock the users data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

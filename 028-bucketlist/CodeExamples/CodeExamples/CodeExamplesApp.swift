@@ -6,7 +6,7 @@ import SwiftUI
 struct CodeExamplesApp: App {
     var body: some Scene {
         WindowGroup {
-            DocumentsFolder()
+            FaceTouchIDExamples()
         }
     }
 }
